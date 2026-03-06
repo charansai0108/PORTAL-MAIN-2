@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathway | The Campus Ecosystem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald-grow: #10b981;
+            --slate-depth: #1e293b;
+            --pearl-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--pearl-bg);
+            color: var(--slate-depth);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .hero-title {
+            letter-spacing: -0.05em;
+            line-height: 0.85;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e2e8f0 50%, transparent);
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        .nav-link-premium {
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-link-premium::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--emerald-grow);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .nav-link-premium:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .btn-premium {
+            background-color: var(--slate-depth);
+            color: #fff;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background-color: #000;
+        }
+
+        .sketch-glow {
+            position: relative;
+        }
+
+        .sketch-glow::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.03) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .architecture-grid {
+            mask-image: linear-gradient(to bottom, black 50%, transparent);
+        }
+    </style>
+</head>
+
+<body class="selection:bg-emerald-50 selection:text-emerald-700">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-slate-50">
+        <div class="max-w-7xl mx-auto px-8 h-24 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 bg-emerald-500 rounded-sm flex items-center justify-center">
+                    <div class="w-4 h-4 bg-white rounded-full"></div>
+                </div>
+                <span class="font-black text-2xl tracking-tighter uppercase">Pathway.</span>
+            </div>
+            <div class="hidden lg:flex gap-16 font-bold text-[10px] uppercase tracking-[0.3em] text-slate-400">
+                <a href="#campus" class="nav-link-premium text-slate-900">The Campus</a>
+                <a href="#verification" class="nav-link-premium">The Benchmark</a>
+                <a href="#success" class="nav-link-premium">Student Success</a>
+                <a href="#scale" class="nav-link-premium">Institution Scale</a>
+            </div>
+            <button class="btn-premium px-10 py-4 rounded-full font-bold text-[10px] uppercase tracking-[0.2em]">
+                Initialize Platform
+            </button>
+        </div>
+    </nav>
+
+    <!-- Masterpiece Hero -->
+    <section class="pt-64 pb-48 px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-32 items-center">
+            <div class="space-y-16">
+                <div class="flex items-center gap-4">
+                    <span class="h-[1px] w-12 bg-emerald-500"></span>
+                    <span class="font-bold text-[10px] uppercase tracking-[0.4em] text-emerald-600">Established
+                        2026</span>
+                </div>
+                <h1 class="hero-title text-[7rem] lg:text-[8rem] font-black text-slate-900 pt-4">
+                    Grow <br />
+                    <span class="text-slate-100 italic"
+                        style="-webkit-text-stroke: 1px #cbd5e1; text-shadow: none;">Together.</span> <br />
+                </h1>
+                <p class="text-2xl text-slate-400 font-medium leading-relaxed max-w-lg">
+                    The premium platform connecting ambitious students with the world's most forward-thinking
+                    institutions and companies.
+                </p>
+                <div class="flex items-center gap-10">
+                    <button class="btn-premium px-12 py-6 rounded-full font-bold text-sm uppercase tracking-widest">
+                        Deploy Portal
+                    </button>
+                    <div class="text-[12px] font-bold text-slate-300 uppercase tracking-widest flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full border border-emerald-500 bg-emerald-500/10"></span>
+                        Status: College Network Active
+                    </div>
+                </div>
+            </div>
+            <div class="sketch-glow">
+                <img src="./assets/premium_college_hero.png" alt="Student & Campus Masterpiece"
+                    class="w-full opacity-90 scale-110 object-contain">
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- The Trust (Partner Marquee) -->
+    <section class="py-32 px-8 text-center bg-white">
+        <h2 class="font-bold text-[10px] uppercase tracking-[0.4em] text-slate-300 mb-20">Empowering institutions like
+        </h2>
+        <div
+            class="flex flex-wrap justify-center gap-24 items-center opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+            <span class="font-black text-2xl uppercase tracking-tighter">Stanford</span>
+            <span class="font-serif text-2xl italic">Harvard Univ.</span>
+            <span class="font-black text-2xl uppercase tracking-widest">MIT</span>
+            <span class="font-bold text-2xl uppercase tracking-tighter">Y Combinator</span>
+            <span class="font-medium text-2xl tracking-tighter">Oxford</span>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Campus Division -->
+    <section id="campus" class="py-48 px-8 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-40 items-center">
+            <div class="order-2 lg:order-1 relative">
+                <div class="sketch-glow">
+                    <img src="./assets/premium_college_network.png" alt="College Campus Network Sketch"
+                        class="w-full opacity-90 scale-110">
+                </div>
+            </div>
+            <div class="space-y-12 order-1 lg:order-2">
+                <h2 class="text-6xl font-black tracking-tighter">The <span class="text-emerald-500">Campus</span> Core.
+                </h2>
+                <div class="space-y-10">
+                    <div class="flex gap-8 group">
+                        <div class="font-black text-4xl text-slate-100 group-hover:text-emerald-500 transition-colors">
+                            01</div>
+                        <div>
+                            <h4 class="font-bold text-lg uppercase tracking-widest text-slate-900 mb-2">Centralized Hub
+                            </h4>
+                            <p class="text-slate-400 font-medium leading-relaxed">Secure, isolated environments for your
+                                institution, connecting every student securely to their potential.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-8 group">
+                        <div class="font-black text-4xl text-slate-100 group-hover:text-emerald-500 transition-colors">
+                            02</div>
+                        <div>
+                            <h4 class="font-bold text-lg uppercase tracking-widest text-slate-900 mb-2">Verified
+                                Ecosystem</h4>
+                            <p class="text-slate-400 font-medium leading-relaxed">Seamlessly integrate your
+                                institution's legacy while providing a modern ecosystem for ambitious students.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Division (Growth Engine) -->
+    <section id="verification" class="py-48 bg-slate-900 text-white rounded-[4rem] mx-4 overflow-hidden relative">
+        <div class="absolute inset-0 architecture-grid opacity-10 pointer-events-none"
+            style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-32 items-center relative z-10">
+            <div class="space-y-12">
+                <h2 class="text-6xl font-black tracking-tighter leading-none">Student <br /> <span
+                        class="text-emerald-500 decoration-emerald-500">Intelligence.</span></h2>
+                <p class="text-2xl text-slate-400 font-medium leading-relaxed">We don't just store grades. We audit
+                    skills and verify professional readiness using our proprietary intelligence engine, bridging the gap
+                    from classroom to career.</p>
+                <div class="grid grid-cols-2 gap-8 pt-8">
+                    <div class="p-8 border border-slate-800 rounded-3xl hover:border-emerald-500 transition-colors">
+                        <div class="text-4xl font-black mb-2 italic text-emerald-500">92%</div>
+                        <div class="font-bold text-[10px] uppercase tracking-widest text-slate-400">Placement Success
+                        </div>
+                    </div>
+                    <div class="p-8 border border-slate-800 rounded-3xl hover:border-emerald-500 transition-colors">
+                        <div class="text-4xl font-black mb-2 italic text-emerald-500">10k+</div>
+                        <div class="font-bold text-[10px] uppercase tracking-widest text-slate-400">Global Recruiters
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <div
+                    class="w-full max-w-md aspect-square rounded-full border-2 border-slate-800 flex items-center justify-center relative">
+                    <div class="absolute inset-4 rounded-full border border-slate-700"></div>
+                    <button
+                        class="w-32 h-32 bg-emerald-500 rounded-full flex items-center justify-center font-black text-slate-900 hover:scale-110 transition-transform text-center leading-tight">
+                        Audit <br /> Skills
+                    </button>
+                    <div
+                        class="absolute top-0 right-0 p-4 bg-white text-slate-900 rounded-2xl font-black text-xs uppercase tracking-widest shadow-2xl translate-x-12">
+                        Real-time <br /> Analysis
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Milestone Section -->
+    <section id="success" class="py-48 px-8 max-w-7xl mx-auto text-center">
+        <div class="max-w-3xl mx-auto space-y-16">
+            <img src="./assets/premium_student_win.png" alt="Student Success Milestone Sketch"
+                class="w-96 mx-auto opacity-100">
+            <h2 class="text-6xl font-black tracking-tighter">Your institution's success is <br /> <span
+                    class="underline decoration-emerald-500 decoration-8 underline-offset-8">measured in theirs.</span>
+            </h2>
+            <p class="text-2xl text-slate-400 font-medium leading-relaxed italic">"Pathway has transformed how we
+                perceive student talent. It bridges the gap between our college's education and their professional
+                outcomes."</p>
+            <div class="space-y-2">
+                <div class="font-black text-lg text-slate-900">Dr. Sarah L. Hayes</div>
+                <div class="font-bold text-[10px] uppercase tracking-[0.4em] text-slate-300">Dean of Engineering @
+                    Stanford</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Deployment Division (Pricing) -->
+    <section id="scale" class="py-48 px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-32 space-y-6">
+            <div class="font-bold text-[10px] uppercase tracking-[0.4em] text-emerald-500">Tiered Access</div>
+            <h2 class="text-7xl font-black tracking-tighter text-slate-900 leading-none">Scaling with <br /> your
+                Ambition.</h2>
+        </div>
+        <div class="grid lg:grid-cols-3 border border-slate-100 rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <!-- Students -->
+            <div class="p-16 space-y-12 hover:bg-slate-50 transition-colors">
+                <div class="space-y-4">
+                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] text-slate-400">Individuals</h4>
+                    <div class="text-6xl font-black italic">$0.00</div>
+                </div>
+                <ul class="space-y-6 font-bold text-xs uppercase tracking-widest text-slate-500">
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Verified
+                        Profile</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Global Talent
+                        Feed</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Audit Log
+                        Export</li>
+                </ul>
+                <button
+                    class="w-full py-5 border border-slate-900 rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-slate-900 hover:text-white transition-all">Claim
+                    Identity</button>
+            </div>
+            <!-- Institutions -->
+            <div class="p-16 space-y-12 bg-slate-900 text-white relative">
+                <div
+                    class="absolute top-8 right-8 bg-emerald-500 px-6 py-2 rounded-full font-black text-[9px] uppercase tracking-widest">
+                    Master Tier</div>
+                <div class="space-y-4">
+                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] text-slate-500">Colleges</h4>
+                    <div class="text-6xl font-black italic">$299.00</div>
+                </div>
+                <ul class="space-y-6 font-bold text-xs uppercase tracking-widest text-slate-400">
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Full
+                        White-Labeling</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Audit Engine
+                        Access</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Placement
+                        Analytics</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Partner Portal
+                        Connect</li>
+                </ul>
+                <button
+                    class="w-full py-5 bg-emerald-500 rounded-full font-black uppercase text-[10px] tracking-widest text-slate-900 hover:bg-white transition-all">Initialize
+                    Campus</button>
+            </div>
+            <!-- Recruiters -->
+            <div class="p-16 space-y-12 hover:bg-slate-50 transition-colors">
+                <div class="space-y-4">
+                    <h4 class="font-bold text-[10px] uppercase tracking-[0.3em] text-slate-400">Recruiters</h4>
+                    <div class="text-6xl font-black italic">$89.00</div>
+                </div>
+                <ul class="space-y-6 font-bold text-xs uppercase tracking-widest text-slate-500">
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> High-Intent
+                        Pipeline</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> AI Score
+                        Filtering</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-emerald-500"></span> Team
+                        Dashboarding</li>
+                </ul>
+                <button
+                    class="w-full py-5 border border-slate-900 rounded-full font-bold uppercase text-[10px] tracking-widest hover:bg-slate-900 hover:text-white transition-all">Connect
+                    Pipeline</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Masterpiece CTA -->
+    <section class="py-64 px-8 text-center bg-white overflow-hidden relative">
+        <div class="absolute inset-0 opacity-5 pointer-events-none text-[30rem] font-black italic tracking-tighter"
+            style="line-height: 0.5; top: 50%; transform: translateY(-50%);">
+            GROWTH
+        </div>
+        <div class="max-w-4xl mx-auto space-y-16 relative z-10">
+            <h2 class="text-8xl lg:text-[10rem] font-black tracking-tighter text-slate-900 leading-[0.8]">Ready to
+                <br /> build?</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-12">
+                <button
+                    class="btn-premium px-16 py-8 rounded-full font-bold text-lg uppercase tracking-widest shadow-2xl">
+                    Get Started Now
+                </button>
+                <div class="font-bold text-xs uppercase tracking-[0.3em] text-slate-400">No Credit Card <br /> Required.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-8 border-t border-slate-50 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 bg-slate-900 rounded-sm flex items-center justify-center">
+                    <div class="w-4 h-4 bg-emerald-500 rounded-full"></div>
+                </div>
+                <span class="font-black text-xl tracking-tighter uppercase">Pathway.</span>
+            </div>
+            <div class="flex gap-16 font-bold text-[10px] uppercase tracking-[0.4em] text-slate-400">
+                <a href="#" class="hover:text-emerald-500">Twitter</a>
+                <a href="#" class="hover:text-emerald-500">LinkedIn</a>
+                <a href="#" class="hover:text-emerald-500">Dribbble</a>
+            </div>
+            <div class="font-bold text-[10px] uppercase tracking-[0.3em] text-slate-200">
+                © 2026 PATHWAY INFRASTRUCTURE SYSTEMS
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

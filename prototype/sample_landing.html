@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform | The Career Operating System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbfbfb;
+            scroll-behavior: smooth;
+        }
+
+        .sketch-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .sketch-underline::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 4px;
+            width: 100%;
+            height: 12px;
+            background: #facc15;
+            z-index: -1;
+            transform: skewX(-15deg);
+            opacity: 0.6;
+            border-radius: 2px;
+        }
+
+        .brutalist-card {
+            border: 3px solid #1a1a1a;
+            box-shadow: 6px 6px 0px #1a1a1a;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px #1a1a1a;
+        }
+
+        .brutalist-button {
+            border: 3px solid #1a1a1a;
+            box-shadow: 4px 4px 0px #1a1a1a;
+            transition: all 0.1s active;
+        }
+
+        .brutalist-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px #1a1a1a;
+        }
+
+        .cursive {
+            font-family: 'Caveat', cursive;
+        }
+
+        .step-number {
+            -webkit-text-stroke: 2px #1a1a1a;
+            color: transparent;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-900 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50">
+        <div
+            class="bg-white border-4 border-black rounded-3xl px-8 py-4 flex justify-between items-center shadow-[8px_8px_0px_rgba(0,0,0,1)]">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center rotate-3">
+                    <span class="text-white font-black text-2xl -rotate-3">P</span>
+                </div>
+                <span class="font-extrabold text-2xl tracking-tighter uppercase italic">Pathway</span>
+            </div>
+            <nav class="hidden lg:flex items-center gap-10 font-black text-sm uppercase tracking-widest">
+                <a href="#how" class="hover:text-blue-600 transition-colors">Process</a>
+                <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+                <a href="#stats" class="hover:text-blue-600 transition-colors">Records</a>
+                <a href="#faq" class="hover:text-blue-600 transition-colors">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <button class="font-black text-sm hover:underline decoration-4 decoration-yellow-400">LOG IN</button>
+                <button
+                    class="bg-blue-600 text-white px-7 py-3 rounded-2xl font-black text-sm uppercase tracking-widest brutalist-button hover:bg-blue-700">
+                    Join Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-52 pb-32 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+        <div class="space-y-10">
+            <div
+                class="inline-block bg-yellow-400 border-2 border-black rotate-[-2deg] px-6 py-2 rounded-lg text-sm font-black tracking-widest uppercase shadow-[4px_4px_0px_#000]">
+                🚀 The Ultimate Career Platform
+            </div>
+            <h1 class="text-7xl md:text-8xl font-black leading-[0.9] tracking-tight text-gray-900 italic">
+                Shape <br />
+                <span class="sketch-underline">Brilliance.</span> <br />
+                We Spot It.
+            </h1>
+            <p class="text-2xl text-gray-500 max-w-lg font-medium leading-tight">
+                Institutional career management & recruiter tools, all in one playful, high-performance ecosystem.
+            </p>
+            <div class="flex flex-wrap gap-6 items-center">
+                <button
+                    class="bg-black text-white px-10 py-5 rounded-3xl font-black text-xl brutalist-button hover:bg-gray-800">
+                    Get Started Free
+                </button>
+                <div class="flex items-center gap-3 pl-2">
+                    <div class="flex -space-x-3">
+                        <div class="w-12 h-12 rounded-full border-4 border-black bg-blue-400"></div>
+                        <div class="w-12 h-12 rounded-full border-4 border-black bg-yellow-400"></div>
+                        <div class="w-12 h-12 rounded-full border-4 border-black bg-green-400"></div>
+                    </div>
+                    <div>
+                        <div class="font-black text-sm tracking-tight">2,500+ Students</div>
+                        <div class="text-xs font-bold text-gray-400 uppercase">Placed this month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div
+                class="absolute -top-12 -right-12 w-32 h-32 border-4 border-dashed border-black rounded-full animate-[spin_10s_linear_infinite]">
+            </div>
+            <img src="./assets/portal_landing_illustration.png" alt="Portal Illustration"
+                class="w-full h-auto relative z-10 rounded-[4rem] border-4 border-black shadow-[20px_20px_0px_#1a1a1a] rotate-1">
+            <div
+                class="absolute -bottom-8 -left-8 bg-white border-4 border-black p-6 rounded-3xl z-20 shadow-[8px_8px_0px_#000] rotate-[-5deg]">
+                <div class="font-black text-2xl">+94%</div>
+                <div class="text-xs font-bold text-gray-400 uppercase">Hiring Efficiency</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Logos -->
+    <div class="bg-black py-10 overflow-hidden border-y-4 border-black">
+        <div class="marquee flex items-center gap-20">
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Google</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Microsoft</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Amazon</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Netflix</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Meta</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Tesla</span>
+            <!-- Duplicate for loop -->
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Google</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Microsoft</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Amazon</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Netflix</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Meta</span>
+            <span class="text-white font-black text-3xl opacity-50 uppercase italic tracking-tighter">Tesla</span>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section id="how" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
+            <div class="space-y-4">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter">How it <span
+                        class="text-blue-600 underline decoration-8">Works.</span></h2>
+                <p class="text-2xl text-gray-500 font-bold max-w-xl">A seamless bridge between institutions, talent, and
+                    opportunities.</p>
+            </div>
+            <button
+                class="bg-white text-black px-10 py-5 rounded-3xl font-black text-xl brutalist-button border-4 border-black">
+                See Documentation
+            </button>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Step 1 -->
+            <div class="relative group">
+                <div
+                    class="step-number text-[8rem] font-black absolute -top-16 -left-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                    01</div>
+                <div class="brutalist-card p-10 bg-white rounded-[3rem] space-y-6 relative h-full">
+                    <div
+                        class="w-16 h-16 bg-blue-100 border-4 border-black rounded-2xl flex items-center justify-center text-3xl">
+                        🏗️</div>
+                    <h3 class="text-3xl font-black tracking-tight">Onboard Institution</h3>
+                    <p class="text-gray-500 font-bold leading-snug text-lg">Set up your dedicated portal, customize
+                        branding, and invite students to the platform.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative group">
+                <div
+                    class="step-number text-[8rem] font-black absolute -top-16 -left-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                    02</div>
+                <div class="brutalist-card p-10 bg-yellow-50 rounded-[3rem] space-y-6 relative h-full">
+                    <div
+                        class="w-16 h-16 bg-yellow-200 border-4 border-black rounded-2xl flex items-center justify-center text-3xl">
+                        🎯</div>
+                    <h3 class="text-3xl font-black tracking-tight">Skill Verification</h3>
+                    <p class="text-gray-500 font-bold leading-snug text-lg">Students undergo module-specific audits and
+                        assessments to prove their readiness.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative group">
+                <div
+                    class="step-number text-[8rem] font-black absolute -top-16 -left-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                    03</div>
+                <div class="brutalist-card p-10 bg-green-50 rounded-[3rem] space-y-6 relative h-full">
+                    <div
+                        class="w-16 h-16 bg-green-200 border-4 border-black rounded-2xl flex items-center justify-center text-3xl">
+                        💼</div>
+                    <h3 class="text-3xl font-black tracking-tight">Direct Hiring</h3>
+                    <p class="text-gray-500 font-bold leading-snug text-lg">Recruiters filter verified talent and manage
+                        the entire hiring pipeline in one place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="bg-black py-32 border-y-4 border-black text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-16 text-center">
+            <div class="space-y-4">
+                <div class="text-7xl font-black text-yellow-400 italic">500+</div>
+                <div class="text-sm font-black uppercase tracking-[0.3em] opacity-60">Partner Colleges</div>
+            </div>
+            <div class="space-y-4">
+                <div class="text-7xl font-black text-blue-400 italic">85k</div>
+                <div class="text-sm font-black uppercase tracking-[0.3em] opacity-60">Verified Students</div>
+            </div>
+            <div class="space-y-4">
+                <div class="text-7xl font-black text-green-400 italic">1.2m</div>
+                <div class="text-sm font-black uppercase tracking-[0.3em] opacity-60">Interviews Held</div>
+            </div>
+            <div class="space-y-4">
+                <div class="text-7xl font-black text-purple-400 italic">$12m</div>
+                <div class="text-sm font-black uppercase tracking-[0.3em] opacity-60">Total Salaries</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Cards Expanded -->
+    <section id="services" class="py-32 bg-[#fff7f7]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-6xl font-black leading-none">The <span class="sketch-underline">Platform</span>
+                        <br /> Feature Stack.</h2>
+                    <p class="text-2xl font-bold text-gray-400">Everything you need to automate placements and
+                        recruitment.</p>
+                    <ul class="space-y-4 text-xl font-black">
+                        <li class="flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">✓</span>
+                            White-label Institutional Portals
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">✓</span>
+                            AI-Powered Skill Assessment
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span
+                                class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-xs">✓</span>
+                            Recruiter CRM & Pipeline
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="brutalist-card p-8 bg-white rounded-3xl space-y-4 mt-12">
+                        <div class="text-4xl">📄</div>
+                        <h4 class="font-black text-xl">Resume Builder</h4>
+                        <p class="text-sm font-bold text-gray-500">Auto-formatted, recruiter-friendly profiles.</p>
+                    </div>
+                    <div class="brutalist-card p-8 bg-blue-50 rounded-3xl space-y-4">
+                        <div class="text-4xl">📅</div>
+                        <h4 class="font-black text-xl">Event Sync</h4>
+                        <p class="text-sm font-bold text-gray-500">Google Calendar integration for interviews.</p>
+                    </div>
+                    <div class="brutalist-card p-8 bg-yellow-50 rounded-3xl space-y-4 mt-12">
+                        <div class="text-4xl">🔔</div>
+                        <h4 class="font-black text-xl">Smart Alerts</h4>
+                        <p class="text-sm font-bold text-gray-500">Never miss an application deadline.</p>
+                    </div>
+                    <div class="brutalist-card p-8 bg-green-50 rounded-3xl space-y-4">
+                        <div class="text-4xl">🛡️</div>
+                        <h4 class="font-black text-xl">Admin Guard</h4>
+                        <p class="text-sm font-bold text-gray-500">Role-based access & security logs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-32 px-6 max-w-4xl mx-auto">
+        <h2 class="text-6xl font-black text-center mb-20 italic">Got Questions?</h2>
+        <div class="space-y-6">
+            <details class="group brutalist-card rounded-3xl bg-white overflow-hidden" open>
+                <summary class="flex justify-between items-center p-8 cursor-pointer font-black text-2xl list-none">
+                    Is this platform really multi-tenant?
+                    <span class="transform group-open:rotate-180 transition-transform duration-300">↓</span>
+                </summary>
+                <div class="p-8 pt-0 text-xl font-bold text-gray-500">
+                    Absolutely! Every institution gets a unique slug (e.g., college-name.portal.com) with its own
+                    branding, student database, and specific recruitment cycles.
+                </div>
+            </details>
+            <details class="group brutalist-card rounded-3xl bg-white overflow-hidden">
+                <summary class="flex justify-between items-center p-8 cursor-pointer font-black text-2xl list-none">
+                    How do you verify student skills?
+                    <span class="transform group-open:rotate-180 transition-transform duration-300">↓</span>
+                </summary>
+                <div class="p-8 pt-0 text-xl font-bold text-gray-500">
+                    We use a combination of AI assessments, manual audits by industry experts, and project-based
+                    validation to ensure a "70%+ Industry Ready" score.
+                </div>
+            </details>
+            <details class="group brutalist-card rounded-3xl bg-white overflow-hidden">
+                <summary class="flex justify-between items-center p-8 cursor-pointer font-black text-2xl list-none">
+                    How can I get my company listed?
+                    <span class="transform group-open:rotate-180 transition-transform duration-300">↓</span>
+                </summary>
+                <div class="p-8 pt-0 text-xl font-bold text-gray-500">
+                    Simply click "Join Now" in the header, choose the Recruiter role, and our team will verify your
+                    organization within 24 hours.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 px-6">
+        <div
+            class="bg-black rounded-[4rem] p-20 text-center space-y-12 relative overflow-hidden border-8 border-yellow-400">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-600 rounded-full opacity-30"></div>
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-600 rounded-full opacity-30"></div>
+
+            <h2 class="text-6xl md:text-8xl font-black text-white italic leading-tight">Ready to start the <br /> next
+                chapter?</h2>
+            <div class="flex flex-col sm:flex-row justify-center gap-8">
+                <button
+                    class="bg-yellow-400 text-black px-12 py-6 rounded-3xl font-black text-2xl brutalist-button border-4 border-black">
+                    I'm a Student
+                </button>
+                <button
+                    class="bg-white text-black px-12 py-6 rounded-3xl font-black text-2xl brutalist-button border-4 border-black">
+                    I'm a Recruiter
+                </button>
+            </div>
+            <div class="cursive text-4xl text-yellow-500">Join 50,000+ people shaping the future!</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 bg-white border-t-8 border-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-4 gap-20 mb-20 font-black">
+                <div class="space-y-8">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
+                            <span class="text-white font-black text-2xl">P</span>
+                        </div>
+                        <span class="text-2xl italic tracking-tighter uppercase">Pathway</span>
+                    </div>
+                    <p class="text-gray-400 font-bold leading-snug">The world's most playful and powerful career
+                        operating system.</p>
+                </div>
+                <div class="space-y-8">
+                    <h5 class="text-blue-600 uppercase tracking-widest text-xs">Resources</h5>
+                    <ul class="space-y-4 flex flex-col">
+                        <a href="#" class="hover:underline">Documentation</a>
+                        <a href="#" class="hover:underline">Help Center</a>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </ul>
+                </div>
+                <div class="space-y-8">
+                    <h5 class="text-yellow-600 uppercase tracking-widest text-xs">Company</h5>
+                    <ul class="space-y-4 flex flex-col">
+                        <a href="#" class="hover:underline">About Us</a>
+                        <a href="#" class="hover:underline">Careers</a>
+                        <a href="#" class="hover:underline">Blog</a>
+                    </ul>
+                </div>
+                <div class="space-y-8">
+                    <h5 class="text-green-600 uppercase tracking-widest text-xs">Connect</h5>
+                    <ul class="space-y-4 flex flex-col">
+                        <a href="#" class="hover:underline">LinkedIn</a>
+                        <a href="#" class="hover:underline">X (Twitter)</a>
+                        <a href="#" class="hover:underline">Instagram</a>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t-2 border-dashed border-gray-200">
+                <div class="text-gray-500 font-bold">© 2026 Pathway Career OS. Built with ❤️ for the future.</div>
+                <div class="flex gap-10 font-black text-xs uppercase tracking-widest">
+                    <a href="#">Security</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Manage Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

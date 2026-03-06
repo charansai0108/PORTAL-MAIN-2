@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathway | The Modern Career Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1e293b 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130%;
+            height: 130%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: -1;
+        }
+
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-card:hover {
+            border-color: #10b981;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary {
+            background-color: #0f172a;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #10b981;
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
+        }
+
+        .step-line {
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #f1f5f9;
+            z-index: 0;
+        }
+
+        .marquee-container {
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+        }
+    </style>
+</head>
+
+<body class="text-slate-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">P</span>
+                </div>
+                <span class="font-extrabold text-2xl tracking-tight text-slate-800">pathway</span>
+            </div>
+            <div class="hidden lg:flex items-center gap-12 font-semibold text-sm text-slate-500">
+                <a href="#how" class="hover:text-emerald-600 transition-colors">How it Works</a>
+                <a href="#features" class="hover:text-emerald-600 transition-colors">Features</a>
+                <a href="#stats" class="hover:text-emerald-600 transition-colors">Records</a>
+                <a href="#faq" class="hover:text-emerald-600 transition-colors">FAQ</a>
+            </div>
+            <div class="flex items-center gap-8">
+                <a href="#" class="text-sm font-bold text-slate-600 hover:text-emerald-600">Log In</a>
+                <button class="btn-primary px-7 py-3 rounded-2xl text-sm font-black uppercase tracking-widest">
+                    Request Demo
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-48 pb-24 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+            <div class="space-y-10">
+                <div
+                    class="inline-flex items-center gap-3 bg-emerald-50 px-5 py-2 rounded-full text-xs font-black text-emerald-700 border border-emerald-100 uppercase tracking-widest">
+                    ✨ Your Career Operating System
+                </div>
+                <h1 class="text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.0] text-slate-900">
+                    Shape <br />
+                    <span class="gradient-text italic">Brilliance.</span> <br />
+                    We Spot It.
+                </h1>
+                <p class="text-2xl text-slate-400 max-w-lg leading-relaxed font-medium">
+                    The minimal, high-performance platform for institutional placements and recruitment management.
+                </p>
+                <div class="flex flex-wrap gap-6 items-center">
+                    <button class="btn-primary px-10 py-5 rounded-3xl text-lg font-black shadow-xl">
+                        Start Hiring Talent
+                    </button>
+                    <div class="flex items-center gap-4 pl-4 border-l-2 border-slate-100">
+                        <div class="flex -space-x-4">
+                            <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-200"></div>
+                            <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-300"></div>
+                            <div class="w-12 h-12 rounded-full border-4 border-white bg-slate-400"></div>
+                        </div>
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                            Join 5,000+ <br /> daily users
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-container relative">
+                <img src="./assets/sketched_people.png" alt="Sketched Professional People"
+                    class="w-full relative z-10 drop-shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Marquee -->
+    <section class="py-20 border-y border-slate-50 marquee-container overflow-hidden">
+        <div
+            class="flex gap-24 items-center animate-[marquee_30s_linear_infinite] whitespace-nowrap opacity-30 grayscale saturate-0">
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Microsoft</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Google</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Tesla</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Amazon</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Netflix</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Meta</span>
+            <!-- Duplicate for loop -->
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Microsoft</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Google</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Tesla</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Amazon</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Netflix</span>
+            <span class="text-3xl font-black text-slate-400 tracking-tighter uppercase">Meta</span>
+        </div>
+    </section>
+
+    <!-- How It Works (Minimalist Steps) -->
+    <section id="how" class="py-32 px-6 lg:px-12 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-24 text-center">
+                <h2 class="text-5xl font-extrabold tracking-tight mb-6">Designed for <span
+                        class="text-emerald-600">Scale.</span></h2>
+                <p class="text-xl text-slate-400 font-medium">A seamless, three-step journey from institution to
+                    industry.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-16">
+                <!-- Step 1 -->
+                <div class="space-y-8 text-center md:text-left">
+                    <div
+                        class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-3xl shadow-sm border border-slate-100 mx-auto md:mx-0">
+                        🏗️</div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-black tracking-tight">Setup Node</h3>
+                        <p class="text-slate-500 font-medium leading-relaxed">Institutions launch their dedicated,
+                            branded portal in minutes with our multi-tenant architecture.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="space-y-8 text-center md:text-left">
+                    <div
+                        class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-3xl shadow-sm border border-slate-100 mx-auto md:mx-0">
+                        🎯</div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-black tracking-tight">Verify Talent</h3>
+                        <p class="text-slate-500 font-medium leading-relaxed">Students undergo comprehensive skill
+                            audits to ensure they meet the 70%+ readiness threshold.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="space-y-8 text-center md:text-left">
+                    <div
+                        class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-3xl shadow-sm border border-slate-100 mx-auto md:mx-0">
+                        🚀</div>
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-black tracking-tight">Bridge Hiring</h3>
+                        <p class="text-slate-500 font-medium leading-relaxed">Recruiters access verified pipelines and
+                            manage interviews through integrated dashboards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Records/Stats -->
+    <section id="stats" class="py-32 px-6 lg:px-12">
+        <div
+            class="max-w-7xl mx-auto bg-slate-900 rounded-[4rem] p-20 text-center grid md:grid-cols-4 gap-16 overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[100px]"></div>
+            <div class="space-y-3 relative">
+                <div class="text-6xl font-extrabold text-emerald-400">500+</div>
+                <div class="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">Partner Nodes</div>
+            </div>
+            <div class="space-y-3 relative">
+                <div class="text-6xl font-extrabold text-white">85k</div>
+                <div class="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">Verified Users</div>
+            </div>
+            <div class="space-y-3 relative">
+                <div class="text-6xl font-extrabold text-white">94%</div>
+                <div class="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">Match Rate</div>
+            </div>
+            <div class="space-y-3 relative">
+                <div class="text-6xl font-extrabold text-white">12h</div>
+                <div class="text-xs font-black text-slate-500 uppercase tracking-[0.3em]">Avg. Hire Time</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-32 px-6 lg:px-12 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-24 items-center">
+                <div class="space-y-10">
+                    <h2 class="text-6xl font-extrabold tracking-tight leading-none">Minimal Effort. <br /> <span
+                            class="text-emerald-600">Maximum Yield.</span></h2>
+                    <p class="text-xl text-slate-400 font-medium leading-relaxed">Everything you need to manage your
+                        institution's career path without the typical clutter.</p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start">
+                            <div
+                                class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-[10px] mt-1">
+                                ✓</div>
+                            <div>
+                                <h4 class="font-black text-slate-800">White-label Branding</h4>
+                                <p class="text-sm text-slate-400 font-bold">Domain-specific custom themes for every
+                                    college.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div
+                                class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-[10px] mt-1">
+                                ✓</div>
+                            <div>
+                                <h4 class="font-black text-slate-800">AI-Assisted Profiling</h4>
+                                <p class="text-sm text-slate-400 font-bold">Automated skill verification and resume
+                                    scoring.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <div
+                                class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-[10px] mt-1">
+                                ✓</div>
+                            <div>
+                                <h4 class="font-black text-slate-800">Recruiter CRM</h4>
+                                <p class="text-sm text-slate-400 font-bold">Powerful tools for recruiters to manage
+                                    applicants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="feature-card p-10 rounded-3xl space-y-4">
+                        <div class="text-3xl">🗓️</div>
+                        <h4 class="font-black">Smart Sync</h4>
+                        <p class="text-xs font-bold text-slate-400">Google Calendar integration.</p>
+                    </div>
+                    <div class="feature-card p-10 rounded-3xl space-y-4 mt-8">
+                        <div class="text-3xl">🛡️</div>
+                        <h4 class="font-black">Security</h4>
+                        <p class="text-xs font-bold text-slate-400">Role-based access logs.</p>
+                    </div>
+                    <div class="feature-card p-10 rounded-3xl space-y-4">
+                        <div class="text-3xl">📊</div>
+                        <h4 class="font-black">Analytics</h4>
+                        <p class="text-xs font-bold text-slate-400">Real-time placement data.</p>
+                    </div>
+                    <div class="feature-card p-10 rounded-3xl space-y-4 mt-8">
+                        <div class="text-3xl">🧩</div>
+                        <h4 class="font-black">Plug & Play</h4>
+                        <p class="text-xs font-bold text-slate-400">Easy API integrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="py-24 px-6 lg:px-12 bg-white border-b border-slate-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/3 space-y-6">
+                <h3 class="text-3xl font-extrabold tracking-tight">Fits into your <span
+                        class="text-emerald-600">ecosystem.</span></h3>
+                <p class="text-slate-400 font-medium">Connect Pathway with the tools you already use every day.</p>
+            </div>
+            <div class="md:w-2/3 grid grid-cols-2 sm:grid-cols-4 gap-8">
+                <div
+                    class="flex items-center justify-center p-8 bg-slate-50 rounded-2xl grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
+                    <span class="font-black text-xs uppercase tracking-widest text-slate-400">Slack</span>
+                </div>
+                <div
+                    class="flex items-center justify-center p-8 bg-slate-50 rounded-2xl grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
+                    <span class="font-black text-xs uppercase tracking-widest text-slate-400">Notion</span>
+                </div>
+                <div
+                    class="flex items-center justify-center p-8 bg-slate-50 rounded-2xl grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
+                    <span class="font-black text-xs uppercase tracking-widest text-slate-400">GitHub</span>
+                </div>
+                <div
+                    class="flex items-center justify-center p-8 bg-slate-50 rounded-2xl grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
+                    <span class="font-black text-xs uppercase tracking-widest text-slate-400">LinkedIn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-32 px-6 lg:px-12 bg-emerald-50/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-extrabold tracking-tight">Voices of <span
+                        class="text-emerald-600 italic">Success.</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="bg-white p-10 rounded-[3rem] border border-slate-100 space-y-8">
+                    <div class="text-emerald-500 text-4xl font-serif">“</div>
+                    <p class="text-lg text-slate-700 font-medium leading-relaxed italic">"Pathway changed how I apply
+                        for jobs. The verification score actually got me noticed by top recruiters immediately."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-100"></div>
+                        <div>
+                            <div class="font-black text-slate-800">Sarah Jenkins</div>
+                            <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">Student @
+                                Stanford</div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white p-10 rounded-[3rem] border border-emerald-500 shadow-xl shadow-emerald-500/5 space-y-8">
+                    <div class="text-emerald-500 text-4xl font-serif">“</div>
+                    <p class="text-lg text-slate-700 font-medium leading-relaxed italic">"The most efficient pipeline
+                        management I've used in 10 years of talent acquisition. Zero clutter, all high-quality talent."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-100"></div>
+                        <div>
+                            <div class="font-black text-slate-800">David Chen</div>
+                            <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">Head of Talent
+                                @ Meta</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-10 rounded-[3rem] border border-slate-100 space-y-8">
+                    <div class="text-emerald-500 text-4xl font-serif">“</div>
+                    <p class="text-lg text-slate-700 font-medium leading-relaxed italic">"Launching our college portal
+                        was seamless. Our placement numbers increased by 40% in just one semester."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-100"></div>
+                        <div>
+                            <div class="font-black text-slate-800">Dr. Emily Watson</div>
+                            <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">Director @ IIT
+                                Bombay</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-32 px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24 space-y-4">
+                <h2 class="text-5xl font-extrabold tracking-tight">Plans that <span
+                        class="underline decoration-emerald-500 decoration-8 underline-offset-8">scale</span> with you.
+                </h2>
+                <p class="text-slate-400 font-medium">Simple, transparent pricing for every type of user.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Students -->
+                <div
+                    class="p-12 bg-white rounded-[4rem] border border-slate-100 space-y-10 hover:border-emerald-500 transition-all">
+                    <div class="space-y-2">
+                        <h4 class="font-black text-slate-400 uppercase tracking-[0.2em] text-xs">For Students</h4>
+                        <div class="text-5xl font-extrabold">$0 <span
+                                class="text-lg text-slate-400 font-medium">/forever</span></div>
+                    </div>
+                    <ul class="space-y-6 font-semibold text-slate-600">
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Build Dynamic
+                            Profile</li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Basic Skill
+                            Assessment</li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Direct Job
+                            Applications</li>
+                    </ul>
+                    <button
+                        class="w-full py-5 rounded-3xl border-2 border-slate-100 font-black text-sm uppercase tracking-widest hover:border-emerald-500 transition-all">Start
+                        Free</button>
+                </div>
+                <!-- Institutions -->
+                <div
+                    class="p-12 bg-slate-900 rounded-[4rem] text-white space-y-10 relative overflow-hidden transform lg:scale-110 z-10">
+                    <div
+                        class="absolute top-0 right-0 bg-emerald-500 px-8 py-2 rounded-bl-3xl font-black text-[10px] uppercase tracking-widest">
+                        Most Popular</div>
+                    <div class="space-y-2">
+                        <h4 class="font-black text-emerald-400 uppercase tracking-[0.2em] text-xs">For Institutions</h4>
+                        <div class="text-5xl font-extrabold">$299 <span
+                                class="text-lg text-slate-500 font-medium">/month</span></div>
+                    </div>
+                    <ul class="space-y-6 font-semibold text-slate-400">
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Unlimited Student
+                            Nodes</li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> White-label Branding
+                        </li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Advanced Placement
+                            CRM</li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Priority Data
+                            Support</li>
+                    </ul>
+                    <button
+                        class="w-full py-5 rounded-3xl bg-white text-slate-900 font-black text-sm uppercase tracking-widest hover:bg-emerald-500 hover:text-white transition-all">Get
+                        Institutaion Pro</button>
+                </div>
+                <!-- Recruiters -->
+                <div
+                    class="p-12 bg-white rounded-[4rem] border border-slate-100 space-y-10 hover:border-emerald-500 transition-all">
+                    <div class="space-y-2">
+                        <h4 class="font-black text-slate-400 uppercase tracking-[0.2em] text-xs">For Recruiters</h4>
+                        <div class="text-5xl font-extrabold">$89 <span
+                                class="text-lg text-slate-400 font-medium">/seat</span></div>
+                    </div>
+                    <ul class="space-y-6 font-semibold text-slate-600">
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Access Verified
+                            Talent</li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> AI Candidate Scoring
+                        </li>
+                        <li class="flex items-center gap-4"><span class="text-emerald-500">✓</span> Custom Interview
+                            Flows</li>
+                    </ul>
+                    <button
+                        class="w-full py-5 rounded-3xl border-2 border-slate-100 font-black text-sm uppercase tracking-widest hover:border-emerald-500 transition-all">Talk
+                        to Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-32 px-6 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-extrabold tracking-tight text-center mb-16">Common Questions</h2>
+        <div class="space-y-4">
+            <details class="group bg-slate-50 rounded-3xl p-8 cursor-pointer" open>
+                <summary class="flex justify-between items-center font-black text-lg list-none">
+                    How long does institution setup take?
+                    <span class="group-open:rotate-180 transition-transform">↓</span>
+                </summary>
+                <p class="mt-6 text-slate-500 font-medium leading-relaxed">Nodes are provisioned instantly. Full brand
+                    customization and student onboarding usually takes less than 24 hours.</p>
+            </details>
+            <details class="group bg-slate-50 rounded-3xl p-8 cursor-pointer">
+                <summary class="flex justify-between items-center font-black text-lg list-none">
+                    Can we use our own domain?
+                    <span class="group-open:rotate-180 transition-transform">↓</span>
+                </summary>
+                <p class="mt-6 text-slate-500 font-medium leading-relaxed">Yes, Pathway supports custom CNAME mapping
+                    for every institutional tenant.</p>
+            </details>
+            <details class="group bg-slate-50 rounded-3xl p-8 cursor-pointer">
+                <summary class="flex justify-between items-center font-black text-lg list-none">
+                    Is the platform secure?
+                    <span class="group-open:rotate-180 transition-transform">↓</span>
+                </summary>
+                <p class="mt-6 text-slate-500 font-medium leading-relaxed">We use JWT-based authentication, encrypted
+                    data storage, and strict role-based access controls to protect all user data.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-40 px-6 text-center">
+        <div class="max-w-4xl mx-auto space-y-12">
+            <h2 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-none">Ready to start the <br /> next
+                chapter?</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <button class="btn-primary px-12 py-5 rounded-3xl text-xl font-black">
+                    Join as Institution
+                </button>
+                <button
+                    class="px-10 py-5 border-2 border-slate-100 rounded-3xl text-sm font-black uppercase tracking-widest hover:bg-slate-50 transition-colors">
+                    Talk to Sales
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-6 lg:px-12 border-t border-slate-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">P</span>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight">pathway</span>
+            </div>
+            <div class="flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                <a href="#" class="hover:text-emerald-600 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-emerald-600 transition-colors">Security</a>
+                <a href="#" class="hover:text-emerald-600 transition-colors">Terms</a>
+            </div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 opacity-50">
+                © 2026 Pathway Career OS.
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathway | Professional Edition (Light)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #fcfcfc;
+            color: #1e293b;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: radial-gradient(circle at top right, #eff6ff 0%, #fcfcfc 60%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-vibrant {
+            background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-vibrant:hover {
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Header -->
+    <header
+        class="py-8 px-6 lg:px-12 flex justify-between items-center fixed top-0 left-0 w-full z-50 bg-white/50 backdrop-blur-md border-b border-black/5">
+        <div class="flex items-center gap-3">
+            <span class="text-3xl font-black italic tracking-tighter text-blue-600">P.</span>
+            <span class="font-bold text-xl uppercase tracking-widest text-slate-800">Pathway</span>
+        </div>
+        <div class="hidden md:flex gap-12 text-xs font-bold uppercase tracking-widest text-slate-500">
+            <a href="#" class="hover:text-blue-600 transition-colors">Platform</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Enterprise</a>
+            <a href="#" class="hover:text-blue-600 transition-colors">Security</a>
+        </div>
+        <button
+            class="glass-card px-8 py-3 rounded-xl font-bold border border-black/10 hover:bg-black/5 transition-all text-sm">
+            Dashboard
+        </button>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-bg pt-48 pb-32 px-6 lg:px-12 min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-12">
+                <div
+                    class="inline-block bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-blue-100">
+                    Trusted by 500+ Global Partners
+                </div>
+                <h1 class="text-7xl lg:text-9xl font-black leading-none tracking-tighter text-slate-900">
+                    CAREER <br />
+                    SOVEREIGN <br />
+                    <span class="text-blue-600">SCALE.</span>
+                </h1>
+                <p class="text-2xl text-slate-500 font-light max-w-xl leading-relaxed">
+                    A high-performance career operating system. Clean, secure, and built for the most ambitious
+                    institutional networks.
+                </p>
+                <div class="flex flex-wrap gap-8 items-center">
+                    <button class="btn-vibrant px-12 py-5 rounded-2xl font-black text-xl shadow-xl shadow-blue-500/10">
+                        Join Platform
+                    </button>
+                    <div class="text-slate-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                        Enterprise Grade Compliance
+                    </div>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <img src="./assets/corporate_light.png" alt="Corporate Light Illustration"
+                    class="w-full max-w-xl relative z-10 rounded-[3rem] drop-shadow-3xl hover:translate-y-[-10px] transition-transform duration-700">
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-100/30 rounded-full blur-[100px] -z-10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-32 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <h2 class="text-5xl lg:text-6xl font-black tracking-tight text-slate-900">Institutional <br /> Excellence.
+            </h2>
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs border-b-2 border-blue-500 pb-2">
+                Platform Core</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-12">
+            <div
+                class="glass-card p-12 rounded-[2.5rem] space-y-8 hover:bg-white transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
+                <div
+                    class="w-14 h-14 bg-blue-50 border border-blue-100 rounded-2xl flex items-center justify-center text-blue-600 font-black text-xl">
+                    01</div>
+                <h3 class="text-3xl font-black tracking-tight text-slate-900">SSO & Identity</h3>
+                <p class="text-slate-500 font-medium leading-relaxed">Secure, multi-tenant authentication with
+                    enterprise integration support.</p>
+            </div>
+            <div
+                class="glass-card p-12 rounded-[2.5rem] space-y-8 hover:bg-white transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
+                <div
+                    class="w-14 h-14 bg-indigo-50 border border-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 font-black text-xl">
+                    02</div>
+                <h3 class="text-3xl font-black tracking-tight text-slate-900">Placement Flow</h3>
+                <p class="text-slate-500 font-medium leading-relaxed">Highly configurable recruitment pipelines for
+                    every institutional need.</p>
+            </div>
+            <div
+                class="glass-card p-12 rounded-[2.5rem] space-y-8 hover:bg-white transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
+                <div
+                    class="w-14 h-14 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 font-black text-xl">
+                    03</div>
+                <h3 class="text-3xl font-black tracking-tight text-slate-900">Audit Ready</h3>
+                <p class="text-slate-500 font-medium leading-relaxed">Full traceability with secure logging and
+                    real-time performance analytics.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Footer -->
+    <footer class="py-20 px-6 lg:px-12 border-t border-black/5 mt-32">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex items-center gap-4">
+                <span class="text-2xl font-black italic text-blue-600">P.</span>
+                <span class="font-bold text-xs uppercase tracking-widest text-slate-400">© 2026 PATHWAY PLATFORM</span>
+            </div>
+            <div class="flex gap-12 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <a href="#" class="hover:text-blue-600 transition-colors">Status</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Privacy</a>
+                <a href="#" class="hover:text-blue-600 transition-colors">Legal</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

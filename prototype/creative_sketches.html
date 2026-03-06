@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathway | Creative Career OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #fdfdfd;
+            scroll-behavior: smooth;
+        }
+
+        .cursive {
+            font-family: 'Caveat', cursive;
+        }
+
+        .scribble-arrow {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+        }
+
+        .highlight-circle {
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border: 2px solid #10b981;
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .sketch-card {
+            border: 1px solid #e2e8f0;
+            background: white;
+            transition: all 0.4s ease;
+        }
+
+        .sketch-card:hover {
+            transform: rotate(-1deg) translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 10px 10px 0px rgba(16, 185, 129, 0.05);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="text-slate-900">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center -rotate-3">
+                    <span class="text-white font-black text-xl">P</span>
+                </div>
+                <span class="font-extrabold text-2xl tracking-tighter uppercase italic">Pathway</span>
+            </div>
+            <div class="hidden md:flex gap-10 font-bold text-xs uppercase tracking-widest text-slate-500">
+                <a href="#intro" class="hover:text-emerald-600 transition-colors">Our Ethos</a>
+                <a href="#features" class="hover:text-emerald-600 transition-colors">Stack</a>
+                <a href="#process" class="hover:text-emerald-600 transition-colors">Journey</a>
+                <a href="#pricing" class="hover:text-emerald-600 transition-colors">Plans</a>
+            </div>
+            <button
+                class="bg-emerald-500 text-white px-8 py-3 rounded-full font-black text-xs uppercase tracking-widest hover:bg-emerald-600 transition-all">
+                Let's Talk
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="intro" class="pt-48 pb-32 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-12">
+                <div class="cursive text-3xl text-emerald-500 -rotate-3 mb-4">Hello, future! 👋</div>
+                <h1 class="text-7xl lg:text-8xl font-black leading-none tracking-tighter text-slate-900">
+                    Your Career, <br />
+                    <span class="highlight-circle">Handcrafted.</span>
+                </h1>
+                <p class="text-2xl text-slate-400 font-medium max-w-lg leading-relaxed">
+                    We've replaced cluttered portals with a clean, sketch-inspired ecosystem that puts your talent in
+                    the spotlight.
+                </p>
+                <div class="flex gap-8 items-center">
+                    <button
+                        class="bg-black text-white px-10 py-5 rounded-full font-black text-lg hover:bg-emerald-500 transition-all">
+                        Get Started
+                    </button>
+                    <div class="cursive text-xl text-slate-400 max-w-[150px]">Join 5,000+ others who made the leap!
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="./assets/sketched_people.png" alt="Collaborative Sketch" class="w-full relative z-10">
+                <!-- Scribble annotations -->
+                <div
+                    class="absolute -top-10 -right-10 cursive text-2xl text-emerald-500 border-2 border-emerald-500 rounded-full px-4 py-1 rotate-12">
+                    Dream Team!</div>
+                <div
+                    class="absolute -bottom-10 -left-10 w-24 h-24 border-2 border-slate-200 border-dashed rounded-full animate-spin-slow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section with Sketch 1: Mentorship -->
+    <section class="py-32 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-24">
+            <div class="order-2 md:order-1 relative">
+                <img src="./assets/sketch_mentors.png" alt="Mentor Sketch" class="w-full relative z-10 rounded-3xl">
+                <div
+                    class="absolute -top-6 -left-6 bg-white shadow-xl p-4 rounded-2xl rotate-[-5deg] z-20 border border-slate-100">
+                    <span class="cursive text-emerald-600 text-xl">1:1 Support</span>
+                </div>
+            </div>
+            <div class="space-y-8 order-1 md:order-2">
+                <h2 class="text-5xl font-black tracking-tight">Meaningful <br /> <span
+                        class="text-emerald-500">Connections.</span></h2>
+                <p class="text-xl text-slate-500 font-medium leading-relaxed">
+                    Our platform isn't just a database. It's a space where students and mentors meet, discuss, and
+                    grow—captured through our minimal interface.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 font-bold text-slate-700">
+                        <span class="text-emerald-500">→</span> Guided Career Roadmaps
+                    </li>
+                    <li class="flex items-center gap-3 font-bold text-slate-700">
+                        <span class="text-emerald-500">→</span> Real-time Chat & Feedback
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Center Quote -->
+    <section class="py-32 text-center px-6">
+        <div class="max-w-3xl mx-auto space-y-8">
+            <div class="text-6xl text-emerald-100 font-serif">“</div>
+            <h3 class="text-4xl font-extrabold italic tracking-tight leading-snug">
+                "We believe that a career is not a checkbox, <br /> but a beautiful, ongoing <span
+                    class="text-emerald-500">sketch</span> of potential."
+            </h3>
+            <div class="cursive text-2xl text-slate-400">— The Pathway Ethos</div>
+        </div>
+    </section>
+
+    <!-- Feature Section with Sketch 2: Hiring -->
+    <section id="features" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-24">
+            <div class="space-y-8">
+                <h2 class="text-5xl font-black tracking-tight">Recruiting, <br /> <span
+                        class="text-blue-500">Refined.</span></h2>
+                <p class="text-xl text-slate-500 font-medium leading-relaxed">
+                    For institutions and recruiters, we provide a clean lens to spot the brilliance in every resume. No
+                    noise, just verified potential.
+                </p>
+                <div class="grid grid-cols-2 gap-8 pt-8">
+                    <div class="sketch-card p-8 rounded-[2rem] space-y-4">
+                        <div class="text-3xl">🔍</div>
+                        <h4 class="font-black text-sm uppercase tracking-widest text-slate-400">Spotlight</h4>
+                        <p class="text-xs font-bold">Spot verified skills instantly.</p>
+                    </div>
+                    <div class="sketch-card p-8 rounded-[2rem] space-y-4">
+                        <div class="text-3xl">⚡</div>
+                        <h4 class="font-black text-sm uppercase tracking-widest text-slate-400">Agility</h4>
+                        <p class="text-xs font-bold">Hire at 3x the speed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="./assets/sketch_hiring.png" alt="Hiring Sketch" class="w-full relative z-10">
+                <div class="cursive text-3xl text-blue-500 absolute top-0 right-0 rotate-12">A Perfect Match!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Section with Sketch 3: Data/Growth -->
+    <section id="process" class="py-32 bg-emerald-50/10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 items-center gap-24">
+            <div class="relative">
+                <img src="./assets/sketch_data.png" alt="Growth Sketch" class="w-full relative z-10">
+                <div class="absolute -bottom-6 -left-6 cursive text-2xl text-blue-500 underline decoration-blue-200">Sky
+                    is the limit!</div>
+            </div>
+            <div class="space-y-8">
+                <h2 class="text-5xl font-black tracking-tight">Visualize <br /> <span class="text-indigo-500">Your
+                        Growth.</span></h2>
+                <p class="text-xl text-slate-500 font-medium leading-relaxed">
+                    Students track their progress from onboarding to placement through our interactive, minimal
+                    dashboards.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center font-black">
+                            70%+</div>
+                        <div class="text-sm font-bold text-slate-400 uppercase tracking-widest">Industry Ready Threshold
+                        </div>
+                    </div>
+                    <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full w-[74%]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebration Section with Sketch 4: Joy -->
+    <section class="py-32 px-6">
+        <div
+            class="max-w-7xl mx-auto bg-black rounded-[4rem] p-20 grid lg:grid-cols-2 items-center gap-20 overflow-hidden relative">
+            <div class="absolute -top-20 -right-20 w-80 h-80 bg-emerald-500/20 rounded-full blur-[100px]"></div>
+            <div class="space-y-10 relative z-10">
+                <h2 class="text-6xl font-black text-white italic">Celebrate <br /> the Win.</h2>
+                <p class="text-2xl text-slate-400 font-medium leading-relaxed">
+                    Success isn't just about the job—it's about the milestone. We help you celebrate every placement.
+                </p>
+                <button
+                    class="bg-emerald-500 text-white px-12 py-6 rounded-full font-black text-2xl hover:bg-emerald-600 transition-all">
+                    Finish the Sketch
+                </button>
+            </div>
+            <div class="relative z-10 flex justify-center translate-y-20">
+                <img src="./assets/sketch_joy.png" alt="Joy Sketch" class="w-full max-w-lg brightness-110">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing (Minimal) -->
+    <section id="pricing" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-24">
+            <h2 class="text-6xl font-black tracking-tighter mb-4">Pricing for <span
+                    class="text-emerald-500 underline decoration-8">Everyone.</span></h2>
+            <div class="cursive text-3xl text-slate-400">Simple, fair, and sketched for your needs.</div>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="p-10 border border-slate-100 rounded-[3rem] space-y-8 flex flex-col">
+                <div class="font-black text-xs uppercase tracking-[0.3em] text-slate-400">Students</div>
+                <div class="text-5xl font-black">$0</div>
+                <p class="text-sm text-slate-400 font-bold flex-grow">Free profile, assessments & job applications.</p>
+                <button
+                    class="w-full py-4 rounded-full border-2 border-black font-black uppercase text-xs tracking-widest hover:bg-black hover:text-white transition-all">Join
+                    Free</button>
+            </div>
+            <div class="p-10 border-4 border-black rounded-[3rem] space-y-8 flex flex-col scale-110 bg-white z-10">
+                <div class="font-black text-xs uppercase tracking-[0.3em] text-emerald-500 italic">Favorite</div>
+                <div class="text-5xl font-black">$299</div>
+                <p class="text-sm text-slate-400 font-bold flex-grow">Full white-label portal for institutions with CRM.
+                </p>
+                <button
+                    class="w-full py-4 rounded-full bg-emerald-500 text-white font-black uppercase text-xs tracking-widest hover:bg-emerald-600 transition-all">Go
+                    Pro</button>
+            </div>
+            <div class="p-10 border border-slate-100 rounded-[3rem] space-y-8 flex flex-col">
+                <div class="font-black text-xs uppercase tracking-[0.3em] text-slate-400">Recruiters</div>
+                <div class="text-5xl font-black">$89</div>
+                <p class="text-sm text-slate-400 font-bold flex-grow">Per seat, access to verified talent pipeline.</p>
+                <button
+                    class="w-full py-4 rounded-full border-2 border-black font-black uppercase text-xs tracking-widest hover:bg-black hover:text-white transition-all">Hire
+                    Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
+                    <span class="text-white font-black text-xl">P</span>
+                </div>
+                <span class="font-extrabold text-xl tracking-tighter uppercase italic">Pathway</span>
+            </div>
+            <div class="flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+                <a href="#" class="hover:text-emerald-600">Twitter</a>
+                <a href="#" class="hover:text-emerald-600">LinkedIn</a>
+                <a href="#" class="hover:text-emerald-600">Dribbble</a>
+            </div>
+            <div class="cursive text-xl text-slate-300">© 2026 — Let's build something great.</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

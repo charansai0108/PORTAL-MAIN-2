@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathway | Architect Career OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #fafaf9;
+            background-image:
+                linear-gradient(#e5e7eb 1px, transparent 1px),
+                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 40px 40px;
+            scroll-behavior: smooth;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .blueprint-border {
+            border: 1px solid #d1d5db;
+            position: relative;
+        }
+
+        .blueprint-border::before {
+            content: '+';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 20px;
+            color: #9ca3af;
+        }
+
+        .blueprint-border::after {
+            content: '+';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 20px;
+            color: #9ca3af;
+        }
+
+        .nav-link {
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #2563eb;
+        }
+
+        .nav-link:hover::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #2563eb;
+        }
+
+        .btn-architect {
+            background-color: #000;
+            color: #fff;
+            transition: all 0.2s;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        .btn-architect:hover {
+            background-color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .stat-box {
+            border-left: 4px solid #000;
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="text-slate-900 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="py-10 px-6 lg:px-12 border-b border-slate-200 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 border-2 border-slate-900 flex items-center justify-center font-bold text-sm">OS
+                </div>
+                <span class="font-bold text-2xl uppercase tracking-[0.2em]">Pathway.v4</span>
+            </div>
+            <nav class="hidden md:flex gap-12 font-bold text-xs uppercase tracking-widest text-slate-500">
+                <a href="#schematics" class="nav-link">Schematics</a>
+                <a href="#modules" class="nav-link">Modules</a>
+                <a href="#deployment" class="nav-link">Deployment</a>
+                <a href="#network" class="nav-link">Network</a>
+            </nav>
+            <button class="btn-architect px-8 py-3 font-bold text-xs uppercase tracking-[0.2em]">
+                System Login
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="schematics" class="pt-32 pb-24 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="space-y-10">
+                <div
+                    class="mono text-xs font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded border border-blue-100 inline-block">
+                    PROTOTYPE_ID: PATHWAY_ARC_001
+                </div>
+                <h1 class="text-6xl lg:text-8xl font-black leading-none tracking-tight">
+                    BUILD <br />
+                    YOUR <br />
+                    <span class="text-blue-600 underline decoration-slate-200">CAREER.</span>
+                </h1>
+                <p class="text-xl text-slate-500 font-medium leading-relaxed max-w-lg">
+                    The precision career operating system. Designed for institutions that treat talent as a fundamental
+                    architecture.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-8 pt-4">
+                    <button
+                        class="bg-black text-white px-10 py-5 font-bold uppercase tracking-widest text-sm hover:bg-blue-600 transition-colors">
+                        Initialize Setup
+                    </button>
+                    <div class="mono text-[10px] text-slate-400 max-w-[200px] leading-tight flex items-center gap-4">
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                        Status: System Operational <br /> Nodes Active: 500+
+                    </div>
+                </div>
+            </div>
+            <div class="blueprint-border p-8 bg-white/50 backdrop-blur-md shadow-2xl">
+                <img src="./assets/architect_hero.png" alt="Architectural Career Sketch"
+                    class="w-full relative z-10 opacity-90">
+                <div
+                    class="absolute -bottom-6 -right-6 bg-black text-white p-6 font-bold text-xs uppercase tracking-widest mono">
+                    v4.0.2 Stable Release
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Specs (Stats) -->
+    <section class="py-24 border-y border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 grid md:grid-cols-4 gap-16">
+            <div class="stat-box">
+                <div class="text-4xl font-bold">500+</div>
+                <div class="mono text-[10px] uppercase tracking-widest text-slate-400 mt-2">Active Institutions</div>
+            </div>
+            <div class="stat-box">
+                <div class="text-4xl font-bold">85,420</div>
+                <div class="mono text-[10px] uppercase tracking-widest text-slate-400 mt-2">Verified Profiles</div>
+            </div>
+            <div class="stat-box">
+                <div class="text-4xl font-bold">94.8%</div>
+                <div class="mono text-[10px] uppercase tracking-widest text-slate-400 mt-2">Placement Efficiency</div>
+            </div>
+            <div class="stat-box">
+                <div class="text-4xl font-bold">0.8s</div>
+                <div class="mono text-[10px] uppercase tracking-widest text-slate-400 mt-2">Search Latency</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules (Features) -->
+    <section id="modules" class="py-40 px-6 lg:px-12 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row justify-between items-start mb-24 gap-10">
+            <h2 class="text-5xl font-black italic">CORE_MODULES.</h2>
+            <p class="text-slate-400 font-bold uppercase tracking-widest text-xs max-w-md">Every component is engineered
+                for reliability and precision in multi-tenant environments.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-1px bg-slate-200 border border-slate-200">
+            <div class="p-16 bg-white space-y-10 group hover:bg-slate-50 transition-colors">
+                <div
+                    class="w-12 h-12 border border-slate-900 flex items-center justify-center font-bold text-sm bg-slate-900 text-white">
+                    01</div>
+                <h3 class="text-3xl font-bold tracking-tight">Identity Hub</h3>
+                <p class="text-slate-500 font-medium leading-relaxed">Multi-tenant authentication with custom subdomains
+                    and institutional branding.</p>
+                <div class="mono text-[10px] text-slate-300">MOD_ID: ID_VAULT_v2</div>
+            </div>
+            <div class="p-16 bg-white space-y-10 group hover:bg-slate-50 transition-colors">
+                <div class="w-12 h-12 border border-slate-900 flex items-center justify-center font-bold text-sm">02
+                </div>
+                <h3 class="text-3xl font-bold tracking-tight">Audit Engine</h3>
+                <p class="text-slate-500 font-medium leading-relaxed">Automated skill verification and assessments to
+                    ensure 70%+ candidate readiness.</p>
+                <div class="mono text-[10px] text-slate-300">MOD_ID: AUD_SCORE_v4</div>
+            </div>
+            <div class="p-16 bg-white space-y-10 group hover:bg-slate-50 transition-colors">
+                <div class="w-12 h-12 border border-slate-900 flex items-center justify-center font-bold text-sm">03
+                </div>
+                <h3 class="text-3xl font-bold tracking-tight">Recruiter API</h3>
+                <p class="text-slate-500 font-medium leading-relaxed">High-performance bridge between verified talent
+                    and global hiring partners.</p>
+                <div class="mono text-[10px] text-slate-300">MOD_ID: BRDG_API_v1</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment (Pricing) -->
+    <section id="deployment"
+        class="py-40 px-6 lg:px-12 bg-slate-100 border-y border-slate-200 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+            <div class="absolute top-20 left-20 text-8xl font-black italic rotate-12">STRUCTURE</div>
+            <div class="absolute bottom-20 right-20 text-8xl font-black italic -rotate-12">RELIABILITY</div>
+        </div>
+        <div class="max-w-7xl mx-auto text-center mb-24">
+            <h2 class="text-6xl font-black tracking-tight mb-4">DEPLOYMENT_TIERS</h2>
+            <p class="mono text-xs text-slate-400 font-bold tracking-widest uppercase italic">"Choose your system's
+                scale"</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-0 border border-slate-300 bg-white">
+            <!-- Tier 1 -->
+            <div class="p-16 space-y-12 border-r border-slate-200 hover:bg-slate-50 transition-colors">
+                <div class="space-y-4">
+                    <h4 class="mono text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Student Tier</h4>
+                    <div class="text-5xl font-black italic">$000.00</div>
+                </div>
+                <ul class="space-y-6 font-bold text-xs uppercase tracking-widest text-slate-600">
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-black"></span> Full Profile Access
+                    </li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-black"></span> Verified Audit Log
+                    </li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-black"></span> Unlimited Apps</li>
+                </ul>
+                <button
+                    class="w-full py-5 border border-black font-bold uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">Request
+                    Access</button>
+            </div>
+            <!-- Tier 2 -->
+            <div class="p-16 space-y-12 bg-black text-white relative">
+                <div class="absolute top-6 right-6 mono text-[10px] text-blue-400 font-bold uppercase animate-pulse">
+                    Standard_Choice</div>
+                <div class="space-y-4">
+                    <h4 class="mono text-[10px] font-bold text-slate-500 tracking-[0.2em] uppercase">Institution Tier
+                    </h4>
+                    <div class="text-5xl font-black italic">$299.00</div>
+                </div>
+                <ul class="space-y-6 font-bold text-xs uppercase tracking-widest text-slate-400">
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-blue-500"></span> Custom CNAME
+                        Mapping</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-blue-500"></span> Multi-tenant Guard
+                    </li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-blue-500"></span> Placement
+                        Analytics</li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-blue-500"></span> Core System Sync
+                    </li>
+                </ul>
+                <button
+                    class="w-full py-5 bg-blue-600 font-bold uppercase text-[10px] tracking-widest hover:bg-blue-700 transition-all">Initialize
+                    Node</button>
+            </div>
+            <!-- Tier 3 -->
+            <div class="p-16 space-y-12 hover:bg-slate-50 transition-colors">
+                <div class="space-y-4">
+                    <h4 class="mono text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase">Recruiter Tier</h4>
+                    <div class="text-5xl font-black italic">$089.00</div>
+                </div>
+                <ul class="space-y-6 font-bold text-xs uppercase tracking-widest text-slate-600">
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-black"></span> Global Talent Feed
+                    </li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-black"></span> AI Score Integration
+                    </li>
+                    <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-black"></span> Pipeline Controls
+                    </li>
+                </ul>
+                <button
+                    class="w-full py-5 border border-black font-bold uppercase text-[10px] tracking-widest hover:bg-black hover:text-white transition-all">Contact
+                    Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-6 lg:px-12 border-t border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 border-2 border-slate-900 flex items-center justify-center font-black text-xs">OS
+                </div>
+                <span class="font-bold text-xl uppercase tracking-[0.3em]">Pathway</span>
+            </div>
+            <div class="flex gap-12 mono text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <a href="#" class="hover:text-black">Security_Doc</a>
+                <a href="#" class="hover:text-black">API_Status</a>
+                <a href="#" class="hover:text-black">License_v4</a>
+            </div>
+            <div class="mono text-[10px] text-slate-300">
+                ARCHITECTURE_COMPLETE // 2026
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
