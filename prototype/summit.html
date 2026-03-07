@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summit | Executive Leadership & Peer Mentorship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FFFFFF;
+            --bg-surface: #F8F9FA;
+            --text-main: #064E3B;
+            /* Deep Forest Green */
+            --text-secondary: #4B5563;
+            --accent: #059669;
+            --accent-soft: #ECFDF5;
+            --border-soft: #E5E7EB;
+            --glass: rgba(255, 255, 255, 0.9);
+            --transition-smooth: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: white;
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: var(--accent-soft);
+            color: var(--text-main);
+            border: 1px solid var(--accent-soft);
+        }
+
+        .btn-accent:hover {
+            background: #D1FAE5;
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.6rem 1.4rem;
+            background: var(--accent-soft);
+            color: var(--text-main);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(6, 78, 59, 0.1);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            margin-left: auto;
+            margin-right: 4rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 220px 0 120px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            font-weight: 300;
+        }
+
+        .hero-visual {
+            margin-top: 8rem;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            background: white;
+            padding: 1.5rem;
+            max-width: 1000px;
+        }
+
+        /* --- Stats --- */
+        .stats {
+            padding: 80px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-block .value {
+            font-size: 3.2rem;
+            font-weight: 400;
+            font-family: 'Bodoni Moda';
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-block .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        /* --- Ecosystem --- */
+        .ecosystem {
+            padding: 140px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 8rem;
+        }
+
+        .section-header h2 {
+            font-size: 4rem;
+            letter-spacing: -0.03em;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .eco-card {
+            background: var(--bg-surface);
+            padding: 4.5rem 3rem;
+            border: 1px solid var(--border-soft);
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .eco-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--text-main);
+            box-shadow: 0 40px 80px rgba(6, 78, 59, 0.05);
+        }
+
+        .eco-visual {
+            height: 160px;
+            background: white;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-soft);
+        }
+
+        .eco-visual img {
+            width: 60%;
+            opacity: 0.3;
+        }
+
+        .eco-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .eco-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+
+        /* --- Engine --- */
+        .engine {
+            padding: 140px 0;
+            background: var(--text-main);
+            color: white;
+            border-radius: 4px;
+            margin: 0 40px;
+        }
+
+        .engine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .engine h2 {
+            font-size: 3.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-list h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #D1FAE5;
+        }
+
+        .feature-list p {
+            color: #A7F3D0;
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+
+        /* --- Trust --- */
+        .trust {
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .trust-badge-circle {
+            width: 220px;
+            height: 220px;
+            border: 1px solid var(--text-main);
+            border-radius: 50%;
+            margin: 60px auto 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border: 1px dashed var(--text-main);
+        }
+
+        .trust-badge-circle span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-badge-circle span:last-child {
+            font-family: 'Bodoni Moda';
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            border-top: 1px solid var(--border-soft);
+            background: white;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+
+        .footer-links-row {
+            display: flex;
+            gap: 8rem;
+        }
+
+        .footer-col h5 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2.5rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-soft);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .engine-grid,
+            .ecosystem-grid,
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav,
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .engine {
+                margin: 0 20px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                gap: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Summit</div>
+        <div class="nav-links">
+            <a href="#peer">Peer Network</a>
+            <a href="#method">Methodology</a>
+            <a href="#hub">Executive Hub</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.7rem 1.8rem; font-size: 0.75rem;">Inquiry</a>
+    </nav>
+
+    <section class="hero" id="peer">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Executive Distinction</span>
+                <h1>The Peak of Professional Potential.</h1>
+                <p>A private gateway for C-suite leaders and visionary founders to navigate the next phase of
+                    organizational evolution.</p>
+                <div class="hero-actions">
+                    <a href="#peer" class="btn btn-primary">Join the Peak</a>
+                    <a href="#"
+                        style="margin-left: 3rem; font-family: 'Bodoni Moda'; font-size: 1.4rem; font-style: italic; text-decoration: none; color: var(--text-main);">The
+                        Portfolio →</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="assets/eon_corporate_professionals_sketch_hero_minimal_1772875749598.png"
+                    alt="Executive Sketch Illustration">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="value">2.4k</span>
+                    <span class="label">Elite Placements</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">$420k</span>
+                    <span class="label">Median Reward</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">500+</span>
+                    <span class="label">Board Seats</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">99%</span>
+                    <span class="label">Retention Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="hub">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Ecosystem</span>
+                <h2>Three Tiers, <br> One Absolute Standard.</h2>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/eon_corporate_professionals_sketch_hero_minimal_1772875749598.png"
+                            alt="Founder Card" style="object-fit: none; object-position: left;">
+                    </div>
+                    <h3>Founders</h3>
+                    <p>Strategic alignment for visionary founders navigating secondary growth or exit phases.</p>
+                    <a href="#" class="btn btn-accent" style="padding: 0.6rem 1.4rem; font-size: 0.8rem;">Invite
+                        Only</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/eon_corporate_professionals_sketch_hero_minimal_1772875749598.png"
+                            alt="Director Card" style="object-fit: none; object-position: center;">
+                    </div>
+                    <h3>Directors</h3>
+                    <p>Elevating established directors to C-suite leadership roles in global organizations.</p>
+                    <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.8rem;">Apply Now</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/eon_corporate_professionals_sketch_hero_minimal_1772875749598.png"
+                            alt="Board Card" style="object-fit: none; object-position: right;">
+                    </div>
+                    <h3>Board Seats</h3>
+                    <p>Connecting verified leaders with high-impact boards requiring specialized expertise.</p>
+                    <a href="#" class="btn btn-accent" style="padding: 0.6rem 1.4rem; font-size: 0.8rem;">Invite
+                        Only</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="engine" id="method">
+        <div class="container">
+            <div class="engine-grid">
+                <div class="engine-content">
+                    <span class="badge" style="background: rgba(255,255,255,0.1); color: #D1FAE5;">The Protocol</span>
+                    <h2>Leadership Matching Protocol.</h2>
+                    <p style="opacity: 0.7; margin-bottom: 3rem;">We prioritize discretion and alignment, utilizing
+                        proprietary datasets to match leaders with organizational legacy goals.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4>✧ Legacy Mapping</h4>
+                            <p>Beyond current impact, we analyze how your leadership style will shape an organization's
+                                10-year legacy.</p>
+                        </li>
+                        <li>
+                            <h4>✧ Discrete Networking</h4>
+                            <p>Our "Black Box" registry ensures absolute privacy while your profile is being evaluated
+                                by top-tier boards.</p>
+                        </li>
+                        <li>
+                            <h4>✧ Cultural Resonance</h4>
+                            <p>Analyzing the nuances of organizational culture to ensure a 100% synergy quotient at the
+                                executive level.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="engine-visual">
+                    <img src="assets/mockup.png" alt="Summit Registry Mockup"
+                        style="width:100%; border:1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <div class="trust-badge-circle">
+                <span>ESTABLISHED</span>
+                <span>EXCELLENCE</span>
+                <span>AUDIT 2025</span>
+            </div>
+            <p
+                style="margin-top: 3rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">
+                The definitive standard for executive placement and organizational synergy. Verified annually.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">Summit</div>
+                    <p>Distinction in executive <br> leadership & global growth.</p>
+                </div>
+                <div class="footer-links-row">
+                    <div class="footer-col">
+                        <h5>Tiers</h5>
+                        <ul>
+                            <li><a href="#">Founders</a></li>
+                            <li><a href="#">Directors</a></li>
+                            <li><a href="#">Board Seats</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Insights</h5>
+                        <ul>
+                            <li><a href="#">Methodology</a></li>
+                            <li><a href="#">Reports</a></li>
+                            <li><a href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Summit Leadership Group. Elite Distinction.</p>
+                <div style="display: flex; gap: 3rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Privacy</a>
+                    <a href="#" style="text-decoration: none; color: inherit;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

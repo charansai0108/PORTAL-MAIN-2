@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism | The Art of Creative Curation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FAF9F6;
+            --bg-surface: #FFFFFF;
+            --text-main: #1A1A1A;
+            --text-secondary: #666666;
+            --accent: #B8C0FF;
+            /* Soft Pastel Blue */
+            --accent-soft: #EEF1FF;
+            --border-soft: #EAEAEA;
+            --glass: rgba(250, 249, 246, 0.9);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .serif {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.1rem 2.8rem;
+            border-radius: 2px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: white;
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--text-main);
+            transform: translateY(-3px);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--text-main);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #96A3FF;
+            transform: translateY(-3px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.4rem;
+            background: var(--accent-soft);
+            color: #5D6D9E;
+            border-radius: 2px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(184, 192, 255, 0.2);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 8rem);
+            max-width: 1000px;
+            height: 75px;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            padding: 0 3rem;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            margin-left: auto;
+            margin-right: 4rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 220px 0 120px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4.8rem;
+            line-height: 1.1;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border: 1px solid var(--border-soft);
+            background: white;
+            padding: 2rem;
+        }
+
+        /* --- Stats --- */
+        .stats {
+            padding: 80px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .stat-block .value {
+            font-size: 3.5rem;
+            font-family: 'Libre Baskerville';
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-block .label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 600;
+        }
+
+        /* --- Ecosystem --- */
+        .ecosystem {
+            padding: 140px 0;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 8rem;
+        }
+
+        .section-intro h2 {
+            font-size: 3.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .eco-card {
+            background: var(--bg-surface);
+            padding: 4rem 2.5rem;
+            border: 1px solid var(--border-soft);
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .eco-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent);
+        }
+
+        .eco-visual {
+            height: 160px;
+            background: var(--bg-main);
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eco-visual img {
+            width: 70%;
+            opacity: 0.6;
+        }
+
+        .eco-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .eco-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Engine --- */
+        .engine {
+            padding: 140px 0;
+            background: #FFF;
+            color: #1A1A1A;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .engine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .engine h2 {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .feature-list h4 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .feature-list p {
+            color: #888;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* --- Trust --- */
+        .trust {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .trust-badge-circle {
+            width: 200px;
+            height: 200px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
+        .trust-badge-circle span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--text-secondary);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            border-top: 1px solid var(--border-soft);
+            background: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1.1rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-soft);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .engine-grid,
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                width: calc(100% - 4rem);
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">Prism</a>
+        <div class="nav-links">
+            <a href="#curation">Curation</a>
+            <a href="#journal">Journal</a>
+            <a href="#registry">Registry</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.6rem; font-size: 0.7rem;">Submit Work</a>
+    </nav>
+
+    <section class="hero" id="curation">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge">Creative Curation</span>
+                    <h1>The Art of Professional Narrative.</h1>
+                    <p>Go beyond the resume. We help you sketch a professional narrative that reflects your unique
+                        creative impact and artistic vision.</p>
+                    <div class="hero-actions">
+                        <a href="#curation" class="btn btn-primary">Start Curating</a>
+                        <a href="#"
+                            style="margin-left: 2rem; border-bottom: 1px solid #1A1A1A; text-decoration: none; color: inherit; font-weight: 600; font-size: 0.9rem;">View
+                            Samples →</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="assets/zenith_minimal_path_art_1772875509967.png" alt="Creative Sketch Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="value">12k+</span>
+                    <span class="label">Artists Curated</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">450+</span>
+                    <span class="label">Design Partners</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">88%</span>
+                    <span class="label">Launch Rate</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">15+</span>
+                    <span class="label">Expert Guilds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="registry">
+        <div class="container">
+            <div class="section-intro">
+                <span class="badge">Ecosystem</span>
+                <h2>Three Domains, <br> One Master Narrative.</h2>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/zenith_student_sketch_hero_minimal_1772875728191.png" alt="Visual Art">
+                    </div>
+                    <h3>Visual Artists</h3>
+                    <p>Bespoke portfolio structures for fine artists, illustrators, and visual communicators.</p>
+                    <a href="#" class="btn btn-accent" style="padding: 0.6rem 1.4rem; font-size: 0.75rem;">Join
+                        Guild</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/eon_corporate_professionals_sketch_hero_minimal_1772875749598.png"
+                            alt="Spatial Art">
+                    </div>
+                    <h3>Architects</h3>
+                    <p>Sophisticated presentation frameworks for spatial designers and urban planners.</p>
+                    <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.75rem;">Join
+                        Guild</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/zenith_minimal_path_art_1772875509967.png" alt="Narrative Art">
+                    </div>
+                    <h3>Narrators</h3>
+                    <p>Connecting narrative designers and creative writers with the world's top-tier studios.</p>
+                    <a href="#" class="btn btn-accent" style="padding: 0.6rem 1.4rem; font-size: 0.75rem;">Join
+                        Guild</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="engine" id="engine">
+        <div class="container">
+            <div class="engine-grid">
+                <div class="engine-content">
+                    <span class="badge">The Curation Engine</span>
+                    <h2>Intelligence in Art.</h2>
+                    <p style="opacity: 0.6; margin-bottom: 3rem;">Our engine doesn't just match keywords; it analyzes
+                        the visual and narrative impact of your work at scale.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4>✧ Semantic Curation</h4>
+                            <p>Beyond descriptions. Our AI analyzes the depth and stylistic resonance of your creative
+                                output.</p>
+                        </li>
+                        <li>
+                            <h4>✧ Guild Benchmarking</h4>
+                            <p>Verify your work against industry-standard guilds to ensure maximum impact in your
+                                vertical.</p>
+                        </li>
+                        <li>
+                            <h4>✧ Impact Dashboard</h4>
+                            <p>Visual tracking of how your creative narrative is performing across the Prism network.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="engine-visual">
+                    <img src="assets/mockup.png" alt="Prism Curation Mockup"
+                        style="width:100%; border:1px solid #EEE; border-radius: 4px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <div class="trust-badge-circle">
+                <span>ESTABLISHED</span>
+                <span
+                    style="font-family: 'Libre Baskerville'; color: var(--accent); font-weight: 700; font-size: 1.4rem;">PRISM</span>
+                <span>GOLD SEAL</span>
+            </div>
+            <p
+                style="margin-top: 3rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">
+                The definitive standard for creative career verification and artistic impact. Verified 2025.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Prism</div>
+                    <p>Architecture of creative impact <br> and professional narrative.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Guilds</h5>
+                    <ul>
+                        <li><a href="#">Visual Art</a></li>
+                        <li><a href="#">Spatial Art</a></li>
+                        <li><a href="#">Narrative Art</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resource</h5>
+                    <ul>
+                        <li><a href="#">The Journal</a></li>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#">Submissions</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Prism Curation Group. For the visionary artist.</p>
+                <div style="display: flex; gap: 3rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Privacy</a>
+                    <a href="#" style="text-decoration: none; color: inherit;">Status</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

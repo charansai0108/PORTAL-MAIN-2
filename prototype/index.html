@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPulse | The Future of Career Networking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FAF9F6;
+            /* Warm Bone */
+            --bg-surface: #FFFFFF;
+            --text-main: #2D3436;
+            --text-secondary: #636E72;
+            --accent: #A3B18A;
+            /* Sage Green */
+            --accent-soft: #DAD7CD;
+            --border-soft: #E0E0E0;
+            --glass: rgba(255, 255, 255, 0.85);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.2rem;
+            border-radius: 100px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            letter-spacing: -0.01em;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: white;
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #8A9A73;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(163, 177, 138, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background-color: var(--accent-soft);
+            color: #588157;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 8rem);
+            max-width: 1200px;
+            height: 70px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            z-index: 1000;
+            border: 1px solid var(--white);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 3rem;
+            margin-left: auto;
+            margin-right: 3rem;
+        }
+
+        .nav-items a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-items a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 240px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4.8rem;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-art-box {
+            position: relative;
+        }
+
+        .hero-art-box img {
+            width: 100%;
+            border-radius: 40px;
+            /* No shadow needed for minimal elegance, maybe a soft border */
+            border: 1px solid var(--bg-main);
+        }
+
+        /* --- Stats --- */
+        .stats {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+            background: var(--bg-surface);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-block {
+            text-align: left;
+        }
+
+        .stat-block .value {
+            font-size: 3.2rem;
+            font-weight: 700;
+            font-family: 'Outfit';
+            color: var(--text-main);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-block .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* --- Ecosystem --- */
+        .ecosystem {
+            padding: 140px 0;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 6rem;
+        }
+
+        .section-intro h2 {
+            font-size: 3.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .eco-card {
+            background: var(--bg-surface);
+            padding: 3.5rem 2.5rem;
+            border-radius: 40px;
+            border: 1px solid var(--border-soft);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.03);
+        }
+
+        .eco-card h3 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .eco-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            min-height: 80px;
+        }
+
+        .eco-visual {
+            height: 120px;
+            width: 100%;
+            background: var(--bg-main);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .eco-visual img {
+            width: 80%;
+            opacity: 0.8;
+        }
+
+        /* --- Engine --- */
+        .engine {
+            padding: 140px 0;
+            background: #1A1A1A;
+            color: #FFFFFF;
+            border-radius: 80px 80px 0 0;
+        }
+
+        .engine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .engine h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .feature-list h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-list h4 span {
+            color: var(--accent);
+        }
+
+        .feature-list p {
+            color: #A0A0A0;
+            font-size: 1rem;
+        }
+
+        /* --- Trust Badge --- */
+        .trust {
+            padding: 100px 0;
+            background: #1A1A1A;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .trust-badge-circle {
+            width: 200px;
+            height: 200px;
+            border: 1px dashed var(--accent);
+            border-radius: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .trust-badge-circle span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            background: #FFFFFF;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .footer-links-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6rem;
+        }
+
+        .footer-col h5 {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border-soft);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1100px) {
+
+            .hero-grid,
+            .engine-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .ecosystem-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            nav {
+                width: calc(100% - 4rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+            .stats-row {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .nav-items {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Career<span>Pulse</span></div>
+        <div class="nav-items">
+            <a href="#vision">Vision</a>
+            <a href="#ecosystem">Ecosystem</a>
+            <a href="#engine">The Engine</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Get Started</a>
+    </nav>
+
+    <section class="hero" id="vision">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge">The Future of Potential</span>
+                    <h1>Bridging the Gap Between Ambition and Opportunity.</h1>
+                    <p>A sophisticated network designed to connect the next generation of talent with the world's most
+                        innovative institutions and employers.</p>
+                    <div class="hero-actions">
+                        <a href="#" class="btn btn-accent">Explore Network</a>
+                        <a href="#"
+                            style="margin-left: 2rem; color: var(--text-main); font-weight:600; text-decoration: none;">How
+                            it works →</a>
+                    </div>
+                </div>
+                <div class="hero-art-box">
+                    <img src="assets/hero.png" alt="Career Architecture">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="value">1.2M</span>
+                    <span class="label">Dreams Nurtured</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">450+</span>
+                    <span class="label">Global Institutes</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">800</span>
+                    <span class="label">Partner Brands</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">92%</span>
+                    <span class="label">Success Quotient</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="ecosystem">
+        <div class="container">
+            <div class="section-intro">
+                <span class="badge">Ecosystem</span>
+                <h2>Three Worlds, <br> One Seamless Flow.</h2>
+                <p>We've reimagined the relationship between talent, educators, and industry leaders through a unified
+                    digital architecture.</p>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/ecosystem.png" alt="Student Art"
+                            style="object-fit: none; object-position: left;">
+                    </div>
+                    <h3>For Talent</h3>
+                    <p>Advanced AI preparation, portfolio curation, and direct access to high-impact career paths.</p>
+                    <a href="#" class="btn btn-primary">Join Pulse</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/ecosystem.png" alt="College Art"
+                            style="object-fit: none; object-position: center;">
+                    </div>
+                    <h3>For Institutions</h3>
+                    <p>Elevate your placement ecosystem with data-driven insights and a vast recruitment network.</p>
+                    <a href="#" class="btn btn-primary">Empower Campus</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/ecosystem.png" alt="Employer Art"
+                            style="object-fit: none; object-position: right;">
+                    </div>
+                    <h3>For Enterprise</h3>
+                    <p>Identify early talent with precision. Streamline your hiring workflow with AI matchmaking.</p>
+                    <a href="#" class="btn btn-primary">Talent Source</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="engine" id="engine">
+        <div class="container">
+            <div class="engine-grid">
+                <div class="engine-content">
+                    <span class="badge" style="background-color: #333; color: var(--accent);">Intelligence</span>
+                    <h2>The Engine Behind the Growth.</h2>
+                    <p style="color: #888; margin-bottom: 2rem;">A powerful suite of AI-driven tools designed to
+                        eliminate friction in the career journey.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4><span>◍</span> MatchPulse AI</h4>
+                            <p>Beyond keywords. Our engine matches talent based on skill depth and cultural resonance.
+                            </p>
+                        </li>
+                        <li>
+                            <h4><span>◍</span> Pre-Flow Training</h4>
+                            <p>Real-time mock interviews and assessments that adapt to individual growth curves.</p>
+                        </li>
+                        <li>
+                            <h4><span>◍</span> Insight Dashboard</h4>
+                            <p>For institutions and partners—granularity that drives strategic decision making.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="engine-visual">
+                    <img src="assets/mockup.png" alt="System Interface Mockup"
+                        style="width: 100%; border-radius: 40px; border: 1px solid #333;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <div class="trust-badge-circle">
+                <span>Certified</span>
+                <span
+                    style="font-size: 1.2rem; font-weight: 700; color: white; letter-spacing: 0.05em; margin: 0.5rem 0;">SECURE</span>
+                <span>Audit 2025</span>
+            </div>
+            <p style="color: #888; margin-top: 2rem; font-size: 0.9rem;">Military-grade encryption for your most
+                valuable data assets.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">Career<span>Pulse</span></div>
+                    <p>Evolving the architecture of talent.</p>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h5>Explore</h5>
+                        <ul>
+                            <li><a href="#">Network</a></li>
+                            <li><a href="#">Solutions</a></li>
+                            <li><a href="#">Intelligence</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Network</h5>
+                        <ul>
+                            <li><a href="#">Colleges</a></li>
+                            <li><a href="#">Talent</a></li>
+                            <li><a href="#">Brands</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Connect</h5>
+                        <ul>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Inquiry</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 CareerPulse. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="#" style="color: var(--text-secondary); text-decoration: none;">Privacy</a>
+                    <a href="#" style="color: var(--text-secondary); text-decoration: none;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

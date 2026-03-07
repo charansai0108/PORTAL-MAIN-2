@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage | Higher Ed Analytics & Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #F8FAFC;
+            --bg-surface: #FFFFFF;
+            --text-main: #0F172A;
+            --text-secondary: #64748B;
+            --accent: #334155;
+            --accent-soft: #F1F5F9;
+            --border-soft: #E2E8F0;
+            --glass: rgba(248, 250, 252, 0.9);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.22rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            font-size: 0.9rem;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: white;
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background: white;
+            color: var(--text-main);
+            border: 1px solid var(--border-soft);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-soft);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: var(--accent-soft);
+            color: var(--text-main);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-soft);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 8rem);
+            max-width: 1100px;
+            height: 75px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            padding: 0 3rem;
+            z-index: 1000;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.03);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .logo span {
+            color: var(--text-secondary);
+            opacity: 0.4;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+            margin-left: auto;
+            margin-right: 4rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 220px 0 120px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.05em;
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            background: white;
+            padding: 1.5rem;
+        }
+
+        /* --- Stats --- */
+        .stats {
+            padding: 80px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-block .value {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-block .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+        }
+
+        /* --- Ecosystem --- */
+        .ecosystem {
+            padding: 140px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 8rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .eco-card {
+            background: var(--bg-surface);
+            padding: 4rem 2.5rem;
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--text-main);
+            box-shadow: 0 40px 80px rgba(15, 23, 42, 0.05);
+        }
+
+        .eco-visual {
+            height: 160px;
+            background: var(--bg-main);
+            margin-bottom: 2.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eco-visual img {
+            width: 70%;
+            opacity: 0.5;
+        }
+
+        .eco-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .eco-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.5;
+        }
+
+        /* --- Engine --- */
+        .engine {
+            padding: 140px 0;
+            background: var(--text-main);
+            color: white;
+            border-radius: 24px;
+            margin: 0 40px;
+        }
+
+        .engine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .engine h2 {
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            letter-spacing: -0.04em;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .feature-list h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #94A3B8;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-list h4::before {
+            content: '◈';
+            color: white;
+        }
+
+        .feature-list p {
+            color: #64748B;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        /* --- Trust --- */
+        .trust {
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .trust-badge-box {
+            display: inline-flex;
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+            padding: 2rem 5rem;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .trust-badge-box span {
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            opacity: 0.4;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            border-top: 1px solid var(--border-soft);
+            background: white;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+
+        .footer-links-row {
+            display: flex;
+            gap: 6rem;
+        }
+
+        .footer-col h5 {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-soft);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .engine-grid,
+            .ecosystem-grid,
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav,
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .engine {
+                margin: 0 20px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                gap: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">VANTAGE<span>//</span></div>
+        <div class="nav-links">
+            <a href="#solutions">Institutional</a>
+            <a href="#engine">The Graph</a>
+            <a href="#trust">Global Network</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.6rem; font-size: 0.85rem;">Enquire</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge">Institutional Intelligence</span>
+                    <h1>Data-Driven Academic Strategy.</h1>
+                    <p>Harness the power of institutional analytics to bridge the gap between academic intent and global
+                        career outcomes.</p>
+                    <div class="hero-actions">
+                        <a href="#solutions" class="btn btn-primary">Our Solutions</a>
+                        <a href="#"
+                            style="margin-left: 2rem; font-weight: 600; text-decoration: none; color: var(--text-main);">The
+                            Vantage Report 2025 ↗</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="assets/vantage_hero.png" alt="Campus Architecture Sketch Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="value">5.2M</span>
+                    <span class="label">Alumni Tracked</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">300+</span>
+                    <span class="label">Universities</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">+22%</span>
+                    <span class="label">Outcomes Lift</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">10B+</span>
+                    <span class="label">Data Nodes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Ecosystem Alignment</span>
+                <h2>Three Domains, <br> One Master Registry.</h2>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/vantage_hero.png" alt="Admin Art"
+                            style="object-fit: none; object-position: top;">
+                    </div>
+                    <h3>Administration</h3>
+                    <p>High-level strategic insights for provosts and institutional leadership teams.</p>
+                    <a href="#" class="btn btn-accent">Strategic View</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/vantage_hero.png" alt="Career Art"
+                            style="object-fit: none; object-position: center;">
+                    </div>
+                    <h3>Career Centers</h3>
+                    <p>Operational tools to streamline placement workflows and corporate partnerships.</p>
+                    <a href="#" class="btn btn-accent">Operational View</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/vantage_hero.png" alt="Registry Art"
+                            style="object-fit: none; object-position: bottom;">
+                    </div>
+                    <h3>Global Registry</h3>
+                    <p>A unified data layer connecting institutions with the world's top-tier hiring hubs.</p>
+                    <a href="#" class="btn btn-accent">Network View</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="engine" id="engine">
+        <div class="container">
+            <div class="engine-grid">
+                <div class="engine-content">
+                    <span class="badge" style="background: #1E293B; color: #F1F5F9;">The Intelligence</span>
+                    <h2>The Institutional Graph.</h2>
+                    <p style="color: #94A3B8; margin-bottom: 2.5rem;">A multi-dimensional mapping engine that tracks
+                        skill evolution from classroom to corporate leadership.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4>Outcome Prediction</h4>
+                            <p>Predicting career trajectories based on academic performance, extracurricular impact, and
+                                global market trends.</p>
+                        </li>
+                        <li>
+                            <h4>Curriculum Sync</h4>
+                            <p>Real-time data loops that help departments align coursework with the evolving needs of
+                                high-impact industries.</p>
+                        </li>
+                        <li>
+                            <h4>The Registry Protocol</h4>
+                            <p>A secure, encrypted data layer for institutional exchange and global student
+                                verification.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="engine-visual">
+                    <img src="assets/mockup.png" alt="Vantage Platform Mockup"
+                        style="width:100%; border:1px solid #1E293B; border-radius: 12px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust" id="trust">
+        <div class="container">
+            <div class="trust-badge-box">
+                <span>Verification</span>
+                <span>Security</span>
+                <span>Compliance</span>
+                <span>Trust</span>
+            </div>
+            <p style="margin-top: 3rem; color: var(--text-secondary); font-size: 0.9rem;">The global standard for
+                institutional data integrity and student privacy. Audit 2025.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">VANTAGE<span>//</span></div>
+                    <p>Institutional Strategy & Outcomes.</p>
+                </div>
+                <div class="footer-links-row">
+                    <div class="footer-col">
+                        <h5>Institutional</h5>
+                        <ul>
+                            <li><a href="#">Provosts</a></li>
+                            <li><a href="#">Career Hubs</a></li>
+                            <li><a href="#">Registry</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Technical</h5>
+                        <ul>
+                            <li><a href="#">API</a></li>
+                            <li><a href="#">Security</a></li>
+                            <li><a href="#">Status</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Vantage Institutional Group. All rights reserved.</p>
+                <div style="display: flex; gap: 3rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Privacy</a>
+                    <a href="#" style="text-decoration: none; color: inherit;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith | Elevated Student Career Journeys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FDFCF0;
+            --bg-surface: #FFFFFF;
+            --text-main: #2D3436;
+            --text-secondary: #636E72;
+            --accent: #D4AF37;
+            /* Muted Gold */
+            --accent-soft: #F5F0D6;
+            --border-soft: #E0E0DB;
+            --glass: rgba(253, 252, 240, 0.9);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.1rem 2.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: white;
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--text-main);
+            transform: translateY(-3px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #B28F2D;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.6rem 1.4rem;
+            background-color: var(--accent-soft);
+            color: #8C7326;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 8rem);
+            max-width: 1100px;
+            height: 70px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            padding: 0 2.5rem;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 3.5rem;
+            margin-left: auto;
+            margin-right: 3.5rem;
+        }
+
+        .nav-items a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-items a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 240px 0 140px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 3.5rem;
+            font-weight: 300;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid var(--border-soft);
+            background: white;
+            padding: 10px;
+        }
+
+        /* --- Stats --- */
+        .stats {
+            padding: 80px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-block .value {
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-block .label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        /* --- Ecosystem --- */
+        .ecosystem {
+            padding: 140px 0;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 6rem;
+        }
+
+        .section-intro h2 {
+            font-size: 3.8rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .eco-card {
+            background: var(--bg-surface);
+            padding: 4rem 2.5rem;
+            border: 1px solid var(--border-soft);
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .eco-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .eco-visual {
+            height: 140px;
+            background: var(--bg-main);
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        .eco-visual img {
+            width: 70%;
+            opacity: 0.6;
+        }
+
+        .eco-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .eco-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Engine --- */
+        .engine {
+            padding: 140px 0;
+            background: #1C1C1B;
+            color: #FDFCF0;
+            border-radius: 4px;
+        }
+
+        .engine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10rem;
+            align-items: center;
+        }
+
+        .engine h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .feature-list h4 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .feature-list p {
+            color: #A0A09A;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* --- Trust --- */
+        .trust {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .trust-badge {
+            width: 220px;
+            height: 220px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: white;
+        }
+
+        .trust-badge span:first-child {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-badge span:last-child {
+            font-family: 'Playfair Display';
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            border-top: 1px solid var(--border-soft);
+            background: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-soft);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .engine-grid,
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                width: calc(100% - 4rem);
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Zenith</div>
+        <div class="nav-items">
+            <a href="#pathways">Pathways</a>
+            <a href="#engine">The Flow</a>
+            <a href="#stories">Success</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.6rem; font-size: 0.75rem;">Admissions</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge">A Higher Standard</span>
+                    <h1>Crafting the Next Chapter of Your Career.</h1>
+                    <p>A bespoke career ecosystem for students who seek purposeful growth and meaningful institutional
+                        connections.</p>
+                    <div class="hero-actions">
+                        <a href="#pathways" class="btn btn-accent">Explore Path</a>
+                        <a href="#"
+                            style="margin-left: 2rem; font-weight: 500; font-size: 0.9rem; text-decoration: none; color: var(--text-main);">The
+                            Methodology →</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="assets/zenith_hero.png" alt="Student Sketch Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="value">96%</span>
+                    <span class="label">Elite Placement</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">120+</span>
+                    <span class="label">Honor Partners</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">$145k</span>
+                    <span class="label">Median Reward</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">4.8/5</span>
+                    <span class="label">Student Trust</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="pathways">
+        <div class="container">
+            <div class="section-intro">
+                <span class="badge">Institutional Flow</span>
+                <h2>Three Journeys, <br> One Singular Vision.</h2>
+                <p>We've architected a refined bridge between your academic potential and the world's most selective
+                    career hubs.</p>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/zenith_organic_growth_art_1772875422823.png" alt="Growth Art">
+                    </div>
+                    <h3>For Alumni</h3>
+                    <p>Lifelong access to the Zenith registry and high-impact peer networking circles.</p>
+                    <a href="#" class="btn btn-primary">Reconnect</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/zenith_minimal_path_art_1772875509967.png" alt="Path Art">
+                    </div>
+                    <h3>For Undergraduates</h3>
+                    <p>Direct bridge-access to strategic internships and specialized carrier preparation cohorts.</p>
+                    <a href="#" class="btn btn-primary">Apply Now</a>
+                </div>
+                <div class="eco-card">
+                    <div class="eco-visual">
+                        <img src="assets/nova_global_network_art_1772875436977.png" alt="Network Art">
+                    </div>
+                    <h3>For Post-Grads</h3>
+                    <p>Sophisticated matchmaking for specialized research and leadership roles worldwide.</p>
+                    <a href="#" class="btn btn-primary">Join Registry</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="engine" id="engine">
+        <div class="container">
+            <div class="engine-grid">
+                <div class="engine-content">
+                    <span class="badge" style="background: #333; color: var(--accent);">Precision Flow</span>
+                    <h2>The Architecture of Success.</h2>
+                    <p style="opacity: 0.6; margin-bottom: 2rem;">A powerful suite of refined tools designed to elevate
+                        every aspect of your professional presence.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4>✧ Zenith Prep Flow</h4>
+                            <p>Adaptive assessments that map your technical depth and leadership resonance with artistic
+                                precision.</p>
+                        </li>
+                        <li>
+                            <h4>✧ Bridge Access</h4>
+                            <p>Direct, un-gated communication lines to decision makers at our exclusive list of partner
+                                institutions.</p>
+                        </li>
+                        <li>
+                            <h4>✧ Insight Registry</h4>
+                            <p>Visual data tracking of your professional evolution, accessible to our global network of
+                                top-tier hiring hubs.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="engine-visual">
+                    <img src="assets/mockup.png" alt="Zenith Engine Mockup"
+                        style="width:100%; border:1px solid #333; border-radius: 4px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust">
+        <div class="container">
+            <div class="trust-badge">
+                <span>ESTABLISHED</span>
+                <span>EXCELLENCE</span>
+                <span>CERTIFIED 2025</span>
+            </div>
+            <p
+                style="margin-top: 3rem; color: var(--text-secondary); max-width: 500px; margin-left: auto; margin-right: auto;">
+                Verified as the leading standard for ethical, high-impact career development in the higher education
+                sector.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Zenith</div>
+                    <p>Evolving the landscape of development <br> through beauty and precision.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Pathways</h5>
+                    <ul>
+                        <li><a href="#">Undergrad</a></li>
+                        <li><a href="#">Executive</a></li>
+                        <li><a href="#">Alumni</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Resource</h5>
+                    <ul>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">Insights</a></li>
+                        <li><a href="#">Registry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#">Admissions</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Zenith Architecture Group. All rights reserved.</p>
+                <div style="display: flex; gap: 3rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Privacy</a>
+                    <a href="#" style="text-decoration: none; color: inherit;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

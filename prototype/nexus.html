@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | The Global Professional Standard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #000000;
+            --bg-surface: #0A0A0A;
+            --text-main: #FFFFFF;
+            --text-secondary: #888888;
+            --accent: #FFD700;
+            /* Gold Accent */
+            --accent-soft: rgba(255, 215, 0, 0.05);
+            --border-soft: #1A1A1A;
+            --glass: rgba(0, 0, 0, 0.9);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            border-radius: 4px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+            border: 1px solid white;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-accent {
+            border: 1px solid var(--border-soft);
+            color: var(--text-main);
+            background: var(--bg-surface);
+        }
+
+        .btn-accent:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-soft);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.6rem 1.6rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 0.4rem;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 5rem;
+            margin-left: auto;
+            margin-right: 5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 250px 0 150px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 7rem;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 5rem;
+            font-weight: 300;
+        }
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 100px auto 0;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border: 1px solid var(--border-soft);
+            padding: 1px;
+            filter: grayscale(1) contrast(1.2);
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 100px black;
+            pointer-events: none;
+        }
+
+        /* --- Stats --- */
+        .stats {
+            padding: 100px 0;
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .stat-block .value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-block .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            font-weight: 700;
+        }
+
+        /* --- Ecosystem --- */
+        .ecosystem {
+            padding: 180px 0;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 100px;
+        }
+
+        .section-header h2 {
+            font-size: 5rem;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .eco-card {
+            border: 1px solid var(--border-soft);
+            padding: 5rem 3.5rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eco-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .eco-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .eco-card p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            line-height: 1.4;
+        }
+
+        .eco-card .number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-weight: 900;
+            font-size: 1.2rem;
+            opacity: 0.1;
+            color: var(--accent);
+        }
+
+        /* --- Engine --- */
+        .engine {
+            padding: 180px 0;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .engine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 10rem;
+            align-items: center;
+        }
+
+        .engine h2 {
+            font-size: 4.5rem;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .feature-list h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .feature-list p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        /* --- Trust --- */
+        .trust {
+            padding: 120px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5rem;
+            opacity: 0.25;
+            margin-bottom: 100px;
+            filter: invert(1);
+        }
+
+        .trust-badge-nexus {
+            display: inline-block;
+            padding: 1.5rem 5rem;
+            border: 1px solid var(--accent);
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 150px 0 80px;
+            background: var(--bg-surface);
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 120px;
+        }
+
+        .footer-col h5 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            margin-bottom: 3.5rem;
+            color: var(--text-main);
+            font-weight: 900;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 1.6rem;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-soft);
+            padding-top: 60px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-weight: 800;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .engine-grid,
+            .ecosystem-grid,
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav,
+            .container {
+                padding: 0 2rem;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                gap: 6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Nexus<span>//</span></div>
+        <div class="nav-links">
+            <a href="#nodes">Global Nodes</a>
+            <a href="#protocol">Protocol</a>
+            <a href="#security">Security</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.8rem 2.5rem; font-size: 0.8rem;">Initialize</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="badge">Universal Professional Registry</span>
+            <h1>The Global <br> Standard.</h1>
+            <p>The definitive inter-institutional network connecting the world's most prestigious professional
+                ecosystems via a unified registry protocol.</p>
+            <div class="hero-actions" style="display: flex; justify-content: center; gap: 4rem;">
+                <a href="#nodes" class="btn btn-primary">Enter Nexus</a>
+                <a href="#" class="btn btn-accent">The Protocol</a>
+            </div>
+            <div class="hero-visual">
+                <img src="assets/nova_global_network_art_1772875436977.png" alt="Global Network Nexus Art">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-row">
+                <div class="stat-block">
+                    <span class="value">50k</span>
+                    <span class="label">Network Nodes</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">1.5k</span>
+                    <span class="label">Security Partners</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">RT</span>
+                    <span class="label">Verification Speed</span>
+                </div>
+                <div class="stat-block">
+                    <span class="value">Zero</span>
+                    <span class="label">Breach History</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ecosystem" id="nodes">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Nexus Spheres</span>
+                <h2>One Registry. <br> Absolute Trust.</h2>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="eco-card">
+                    <div class="number">01</div>
+                    <h3>Institutions</h3>
+                    <p>Connecting universities and vocational centers with a global professional verification layer.</p>
+                    <a href="#" class="btn btn-accent" style="padding: 0.6rem 1.6rem; font-size: 0.75rem;">Access
+                        Hub</a>
+                </div>
+                <div class="eco-card">
+                    <div class="number">02</div>
+                    <h3>Security Partners</h3>
+                    <p>Integrating world-class encryption and audit firms to ensure absolute data integrity.</p>
+                    <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.6rem; font-size: 0.75rem;">Access
+                        Hub</a>
+                </div>
+                <div class="eco-card">
+                    <div class="number">03</div>
+                    <h3>Prof. Guilds</h3>
+                    <p>Unifying specialized professional bodies under a single, interoperable standard.</p>
+                    <a href="#" class="btn btn-accent" style="padding: 0.6rem 1.6rem; font-size: 0.75rem;">Access
+                        Hub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="engine" id="protocol">
+        <div class="container">
+            <div class="engine-grid">
+                <div class="engine-content">
+                    <span class="badge" style="border-radius: 0;">The Tech Stack</span>
+                    <h2>Nexus Registry Protocol.</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 5rem; font-size: 1.4rem;">A distributed,
+                        high-security data exchange layer built for the complexities of global professional
+                        verification.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <h4>◌ Universal ID</h4>
+                            <p>A portable professional identity that carries verified achievements across institutional
+                                borders.</p>
+                        </li>
+                        <li>
+                            <h4>◌ Real-Time Audit</h4>
+                            <p>Continuous verification loops ensuring that every credential in the Nexus network is 100%
+                                current.</p>
+                        </li>
+                        <li>
+                            <h4>◌ Encryption Tier-1</h4>
+                            <p>Utilizing post-quantum cryptographic standards to safeguard professional data
+                                sovereignty.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="engine-visual">
+                    <img src="assets/mockup.png" alt="Nexus Registry Platform Mockup"
+                        style="width:100%; filter: invert(1) brightness(0.8);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust" id="security">
+        <div class="container">
+            <div class="trust-grid">
+                <div>SWIFT</div>
+                <div>ISO</div>
+                <div>NIST</div>
+                <div>GDPR</div>
+                <div>SOC2</div>
+            </div>
+            <div class="trust-badge-nexus">
+                NEXUS CERTIFIED 2025
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="logo">Nexus<span>//</span></div>
+                    <p>The global standard for professional <br> verification and institutional trust.</p>
+                </div>
+                <div class="footer-links-row">
+                    <div class="footer-col" style="margin-right: 8rem;">
+                        <h5>Network</h5>
+                        <ul>
+                            <li><a href="#">Global Nodes</a></li>
+                            <li><a href="#">Verification</a></li>
+                            <li><a href="#">Partnerships</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Standard</h5>
+                        <ul>
+                            <li><a href="#">The Protocol</a></li>
+                            <li><a href="#">Security</a></li>
+                            <li><a href="#">Legal</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Nexus Global Professional Standard Inc.</p>
+                <div style="display: flex; gap: 4rem;">
+                    <a href="#" style="text-decoration: none; color: inherit;">Status</a>
+                    <a href="#" style="text-decoration: none; color: inherit;">Audit</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
