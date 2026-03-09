@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal | Placement Made 10X Simpler</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #ffffff;
+            /* light background */
+            --bg-surface: #f8fafc;
+            /* light surface */
+            --text-main: #1e1b4b;
+            /* deep indigo text */
+            --text-secondary: #4338ca;
+            /* secondary indigo text */
+            --accent: #8b5cf6;
+            /* amethyst purple */
+            --accent-glow: rgba(139, 92, 246, 0.2);
+            --amber-gold: #f59e0b;
+            /* amber gold for highlights */
+            --border: rgba(30, 27, 75, 0.1);
+            --glass: rgba(255, 255, 255, 0.8);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: #e8eef2;
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer-panel {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 2rem 0;
+            background: #e8eef2;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-panel {
+            padding: 120px 2rem;
+            margin: 0 1.5rem;
+            width: calc(100% - 3rem);
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+        }
+
+        .what-is-this.section-panel {
+            padding-top: 60px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100vw;
+            height: 70px;
+            background: #ffffff;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 2.5rem;
+            z-index: 1000;
+            box-sizing: border-box;
+            transition: background 0.4s ease;
+        }
+
+        nav.nav-blended {
+            background: #e8eef2;
+            border-bottom-color: transparent;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-deep);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px var(--accent-glow);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding-top: 15px;
+            padding-bottom: 0;
+            margin-top: 4rem;
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffff;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            white-space: nowrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero h1 .simpler-cursive,
+        .cursive-underline {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .compare-main-title .cursive-underline,
+        .timeline-section .section-title h2 .cursive-underline,
+        .contact-section h2 .cursive-underline {
+            color: var(--amber-gold);
+            font-size: 1em;
+            font-weight: 800;
+        }
+
+        .cursive-underline-black {
+            font-family: 'Caveat', cursive;
+            font-weight: inherit;
+            font-size: 1em;
+            text-decoration: underline;
+            color: #000;
+            letter-spacing: 0.05em;
+        }
+
+        .hero p {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 3rem;
+            font-family: 'Caveat', cursive;
+        }
+
+        .hero-stats {
+            margin-top: 0.5rem;
+            padding: 0.5rem 2rem;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 4.5rem;
+            font-weight: 1000;
+            color: #000;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .stat-item p {
+            color: #0f172a;
+        }
+
+        .highlight-circle {
+            position: relative;
+            z-index: 1;
+            display: inline;
+            padding: 0.15em 0.3em;
+        }
+
+        .highlight-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border: 2px solid var(--amber-gold);
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .highlight-circle-black {
+            position: relative;
+            z-index: 1;
+            display: inline;
+            padding: 0.15em 0.3em;
+        }
+
+        .compare-card-content h4 .highlight-circle-black {
+            margin-right: 0.2em;
+        }
+
+        .highlight-circle-black::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            border: 2px solid #000;
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero-image {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            width: 104.5%;
+            max-width: none;
+            display: block;
+            object-fit: contain;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #0f172a;
+            letter-spacing: 0.06em;
+            max-width: 700px;
+            margin: 1rem auto 0;
+            line-height: 1.6;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            padding: 2.25rem 3rem 3rem 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--accent);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card-subtitle {
+            font-weight: 600;
+            color: var(--text-main) !important;
+        }
+
+        .card-list {
+            list-style: none;
+            margin: 1rem 0;
+            padding-left: 0;
+        }
+
+        .card-list li {
+            color: var(--text-secondary);
+            padding-left: 0;
+            margin-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-list li::before {
+            content: "•";
+            color: var(--accent);
+            margin-right: 0.35em;
+        }
+
+        .card-closing {
+            font-weight: 600;
+            color: var(--text-main) !important;
+            margin-bottom: 0 !important;
+        }
+
+        /* --- Comparison --- */
+        .comparison {
+            background: #ffffff;
+        }
+
+        .compare-main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .compare-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .compare-image {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .compare-card-content {
+            width: 100%;
+        }
+
+        .compare-card-content h4 {
+            text-align: center;
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .compare-list {
+            list-style: none;
+        }
+
+        .compare-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .compare-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* --- Timeline --- */
+        .timeline-section {
+            background: #ffffff;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            padding-bottom: 2rem;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            padding: 0 40px 2rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--accent);
+            border: 4px solid var(--bg-deep);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .left {
+            left: 0;
+            padding-right: 50px;
+        }
+
+        .right {
+            left: 50%;
+            padding-left: 50px;
+        }
+
+        .right::after {
+            left: -10px;
+            right: auto;
+        }
+
+        .content {
+            padding: 1.5rem 2rem;
+            background: var(--bg-surface);
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .content p {
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+        /* --- Forms --- */
+        .contact-section {
+            background: #ffffff;
+        }
+
+        .contact-subline {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        .contact-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        form {
+            background: var(--bg-surface);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
+        }
+
+        /* --- FAQ --- */
+        .faq-section {
+            background: #ffffff;
+        }
+
+        .faq-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 3rem;
+        }
+
+        details {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+        }
+
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        summary::after {
+            content: '+';
+            color: var(--accent);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .stat-item h3 {
+                font-size: 3rem;
+            }
+
+            .compare-grid,
+            .contact-flex {
+                grid-template-columns: 1fr;
+            }
+
+            .compare-main-title {
+                font-size: 2rem;
+            }
+
+            .timeline::after {
+                left: 21px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding: 0 25px 2rem 70px;
+            }
+
+            .timeline-item:last-child {
+                padding-bottom: 0;
+            }
+
+            .timeline-item::after {
+                left: 12px;
+                right: auto;
+                top: 20px;
+            }
+
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">SETU</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#comparison">Why Us</a>
+            <a href="#how-it-works">Process</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <a href="#queries" class="btn btn-primary" style="margin-left: 2rem;">Get Started</a>
+    </nav>
+
+    <div class="outer-panel">
+        <!-- Hero Section -->
+        <section class="hero section-panel">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Placement Made <span>10X <span class="simpler-cursive">Simpler!</span></span></h1>
+                </div>
+            </div>
+            <img src="assets/3d_students_isolated-removebg-preview-removebg-preview.png" alt="Isolated 3D Students"
+                class="hero-image">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>We Bridge The Gap</h3>
+                            <p><span class="highlight-circle">3 months of average time spent by co-ordinator chasing
+                                    companies</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's even this? -->
+        <section id="about" class="what-is-this section-panel">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What's Even This?</h2>
+                    <p class="section-subtitle"><span class="highlight-circle">A unified, two-sided platform architected
+                            for modern colleges and elite companies seeking top-tier talent without the administrative
+                            friction.</span></p>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>For Colleges</h3>
+                        <p class="card-subtitle">Manage the entire placement process from one platform.</p>
+                        <ul class="card-list">
+                            <li>Create and manage placement drives and job opportunities</li>
+                            <li>Track student applications and interview progress easily</li>
+                            <li>Manage students, recruiters, and placement staff accounts</li>
+                            <li>Publish resources, placement events, and announcements</li>
+                            <li>Access placement analytics, reports, and activity insights</li>
+                        </ul>
+                        <p class="card-closing">Run a fully organized placement system without spreadsheets.</p>
+                    </div>
+                    <div class="card">
+                        <h3>For Companies</h3>
+                        <p class="card-subtitle">Hire directly from verified college talent pools.</p>
+                        <ul class="card-list">
+                            <li>Post and manage job opportunities across partner colleges</li>
+                            <li>Screen qualified candidates and manage incoming applications</li>
+                            <li>Run structured interview rounds with organized evaluation workflows</li>
+                            <li>Track hiring pipelines, candidate progress, and recruitment analytics</li>
+                            <li>Access a streamlined workflow designed for campus recruitment</li>
+                        </ul>
+                        <p class="card-closing">Find, evaluate, and hire the right candidates through one platform.</p>
+                    </div>
+                    <div class="card">
+                        <h3>For Students</h3>
+                        <p class="card-subtitle">Manage your placement journey in one dashboard.</p>
+                        <ul class="card-list">
+                            <li>Build a professional profile and upload resumes</li>
+                            <li>Explore jobs targeted to your college community</li>
+                            <li>Apply to opportunities and track application status</li>
+                            <li>Schedule interviews and manage placement events</li>
+                            <li>Access placement resources and career guidance</li>
+                        </ul>
+                        <p class="card-closing">Everything related to placements in one place.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison section-panel">
+            <div class="container">
+                <h2 class="compare-main-title">We Built What We Wished <span class="cursive-underline">Existed!</span>
+                </h2>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <img src="assets/traditional_placement_3d.png" alt="Traditional Placement Chaos"
+                            class="compare-image">
+                        <div class="compare-card-content">
+                            <h4><span class="highlight-circle-black">Traditional</span> <span
+                                    class="cursive-underline-black">Placements</span></h4>
+                            <ul class="compare-list">
+                                <li>Manual tracking of student records and scores</li>
+                                <li>Hectic round-to-round selection management</li>
+                                <li>Administrative overload chasing company HRs</li>
+                                <li>Fragmented data and communication silos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="compare-card">
+                        <img src="assets/portal_placement_3d.png" alt="Automated Portal Success" class="compare-image">
+                        <div class="compare-card-content">
+                            <h4><span class="highlight-circle-black">How We Do It</span> <span
+                                    class="cursive-underline-black">Differently</span></h4>
+                            <ul class="compare-list">
+                                <li>Automated end-to-end recruitment lifecycle</li>
+                                <li>Dynamic skill-based talent matching</li>
+                                <li>Unified platform for all stakeholders</li>
+                                <li>Real-time analytics and outcome tracking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section id="how-it-works" class="timeline-section section-panel">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How It Works So It Always <span class="cursive-underline">Work Out!</span></h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>01. Initialization</h3>
+                            <p>Colleges onboard their departments and students onto the Portal registry.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3>02. Skill Audit</h3>
+                            <p>Students complete profiles with verified skills and academic milestones.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>03. Matching</h3>
+                            <p>Companies set criteria and get instantly matched with relevant talent pools.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3>04. Automated Rounds</h3>
+                            <p>Testing and interview rounds are managed and recorded through the platform.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>05. Successful Placement</h3>
+                            <p>Final selections are announced and on-boarding paperwork is digitized.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Query Section -->
+        <section id="queries" class="contact-section section-panel">
+            <div class="container">
+                <div class="contact-flex">
+                    <div>
+                        <h2>Got <span class="cursive-underline">Queries?</span></h2>
+                        <p class="contact-subline"><span class="highlight-circle">We Are Just A Question Away</span></p>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Our team is ready to help you
+                            architect
+                            your institutional portal or company hiring hub. Reach out and let's bridge the gap.</p>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="you@institution.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="How Can We Help?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send
+                            Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section section-panel">
+            <div class="container">
+                <div class="section-title" style="text-align: left;">
+                    <h2 class="faq-title"><span class="highlight-circle-black">Things You'll Probably Ask</span></h2>
+                </div>
+                <div class="faq-accordion">
+                    <details>
+                        <summary>Is The Platform Customizable For Our College Branding?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Yes, every institution gets a
+                            dedicated
+                            portal with custom branding, specific academic rules, and controlled access for faculty.</p>
+                    </details>
+                    <details>
+                        <summary>How Do You Verify The Skills Of The Students?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We use a combination of
+                            university-verified scores, built-in skill assessments, and project audits to provide a
+                            comprehensive skill profile.</p>
+                    </details>
+                    <details>
+                        <summary>Can Companies Manage The Entire Interview Process Here?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Absolutely. From initial screening to
+                            the
+                            final offer letter, every round is managed on Portal with automated schedule syncing.</p>
+                    </details>
+                    <details>
+                        <summary>What Is The Typical Setup Time For An Institution?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Most colleges are up and running
+                            within
+                            48 to 72 hours, depending on the scale of data migration required.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-panel">
+            <div class="container">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Contact</a>
+                    <a href="#about">About</a>
+                    <a href="#how-it-works">How It Works</a>
+                </div>
+                <p>© 2026 SETU. Redefining placement standards.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            var nav = document.querySelector('nav');
+            var hero = document.querySelector('.hero');
+
+            function checkScroll() {
+                var heroRect = hero.getBoundingClientRect();
+                var heroTop = heroRect.top;
+                var navHeight = 70;
+
+                if (heroTop >= navHeight) {
+                    nav.classList.add('nav-blended');
+                } else {
+                    nav.classList.remove('nav-blended');
+                }
+            }
+
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+        })();
+    </script>
+
+</body>
+
+</html>

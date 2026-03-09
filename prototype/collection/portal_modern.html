@@ -13,26 +13,22 @@
     <style>
         :root {
             --bg-deep: #ffffff;
-            /* light background */
-            --bg-surface: #f5f5f5;
-            /* light surface */
-            --text-main: #111827;
-            /* dark text */
-            --text-secondary: #374151;
-            /* secondary dark text */
-            --accent: #10B981;
-            /* keep accent */
-            --accent-glow: rgba(16, 185, 129, 0.2);
-            --border: rgba(0, 0, 0, 0.1);
-            --glass: rgba(255, 255, 255, 0.8);
+            /* Pure white background */
+            --bg-surface: #f8fafc;
+            /* ultra-subtle slate surface */
+            --text-main: #0f172a;
+            /* deep slate text */
+            --text-secondary: #475569;
+            /* medium slate text */
+            --accent: #2563eb;
+            /* electric blue */
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --rose-crimson: #f43f5e;
+            /* vibrant rose for handwritten pop */
+            --border: rgba(15, 23, 42, 0.08);
+            --glass: rgba(255, 255, 255, 0.85);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-
-        }
-
-
-
 
         * {
             margin: 0;
@@ -216,7 +212,7 @@
         .compare-main-title .cursive-underline,
         .timeline-section .section-title h2 .cursive-underline,
         .contact-section h2 .cursive-underline {
-            color: var(--accent);
+            color: var(--rose-crimson);
             font-size: 1em;
             font-weight: 800;
         }
@@ -274,10 +270,10 @@
             transform: translate(-50%, -50%);
             width: 120%;
             height: 120%;
-            border: 2px solid var(--accent);
+            border: 2px solid var(--rose-crimson);
             border-radius: 60% 40% 70% 30% / 40% 50% 60% 50%;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .highlight-circle-black {
@@ -583,7 +579,7 @@
             background: var(--bg-deep);
             border: 1px solid var(--border);
             border-radius: 8px;
-            color: white;
+            color: var(--text-main);
             font-family: inherit;
         }
 
@@ -655,6 +651,7 @@
             .hero h1 {
                 font-size: 3rem;
             }
+
             .stat-item h3 {
                 font-size: 3rem;
             }
@@ -720,201 +717,214 @@
                     <h1>Placement Made <span>10X <span class="simpler-cursive">Simpler!</span></span></h1>
                 </div>
             </div>
-            <img src="assets/3d_students_isolated-removebg-preview-removebg-preview.png" alt="Isolated 3D Students" class="hero-image">
+            <img src="assets/3d_students_isolated-removebg-preview-removebg-preview.png" alt="Isolated 3D Students"
+                class="hero-image">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-stats">
                         <div class="stat-item">
                             <h3>We Bridge The Gap</h3>
-                            <p><span class="highlight-circle">3 months of average time spent by co-ordinator chasing companies</span></p>
+                            <p><span class="highlight-circle">3 months of average time spent by co-ordinator chasing
+                                    companies</span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-    <!-- What's even this? -->
-    <section id="about" class="what-is-this section-panel">
-        <div class="container">
-            <div class="section-title">
-                <h2>What's Even This?</h2>
-                <p class="section-subtitle"><span class="highlight-circle">A unified, two-sided platform architected for modern colleges and elite companies seeking top-tier talent without the administrative friction.</span></p>
-            </div>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>For Colleges</h3>
-                    <p class="card-subtitle">Manage the entire placement process from one platform.</p>
-                    <ul class="card-list">
-                        <li>Create and manage placement drives and job opportunities</li>
-                        <li>Track student applications and interview progress easily</li>
-                        <li>Manage students, recruiters, and placement staff accounts</li>
-                        <li>Publish resources, placement events, and announcements</li>
-                        <li>Access placement analytics, reports, and activity insights</li>
-                    </ul>
-                    <p class="card-closing">Run a fully organized placement system without spreadsheets.</p>
+        <!-- What's even this? -->
+        <section id="about" class="what-is-this section-panel">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What's Even This?</h2>
+                    <p class="section-subtitle"><span class="highlight-circle">A unified, two-sided platform architected
+                            for modern colleges and elite companies seeking top-tier talent without the administrative
+                            friction.</span></p>
                 </div>
-                <div class="card">
-                    <h3>For Companies</h3>
-                    <p class="card-subtitle">Hire directly from verified college talent pools.</p>
-                    <ul class="card-list">
-                        <li>Post and manage job opportunities across partner colleges</li>
-                        <li>Screen qualified candidates and manage incoming applications</li>
-                        <li>Run structured interview rounds with organized evaluation workflows</li>
-                        <li>Track hiring pipelines, candidate progress, and recruitment analytics</li>
-                        <li>Access a streamlined workflow designed for campus recruitment</li>
-                    </ul>
-                    <p class="card-closing">Find, evaluate, and hire the right candidates through one platform.</p>
-                </div>
-                <div class="card">
-                    <h3>For Students</h3>
-                    <p class="card-subtitle">Manage your placement journey in one dashboard.</p>
-                    <ul class="card-list">
-                        <li>Build a professional profile and upload resumes</li>
-                        <li>Explore jobs targeted to your college community</li>
-                        <li>Apply to opportunities and track application status</li>
-                        <li>Schedule interviews and manage placement events</li>
-                        <li>Access placement resources and career guidance</li>
-                    </ul>
-                    <p class="card-closing">Everything related to placements in one place.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison Section -->
-    <section id="comparison" class="comparison section-panel">
-        <div class="container">
-            <h2 class="compare-main-title">We Built What We Wished <span class="cursive-underline">Existed!</span></h2>
-            <div class="compare-grid">
-                <div class="compare-card">
-                    <img src="assets/traditional_placement_3d.png" alt="Traditional Placement Chaos" class="compare-image">
-                    <div class="compare-card-content">
-                        <h4><span class="highlight-circle-black">Traditional</span> <span class="cursive-underline-black">Placements</span></h4>
-                        <ul class="compare-list">
-                            <li>Manual tracking of student records and scores</li>
-                            <li>Hectic round-to-round selection management</li>
-                            <li>Administrative overload chasing company HRs</li>
-                            <li>Fragmented data and communication silos</li>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>For Colleges</h3>
+                        <p class="card-subtitle">Manage the entire placement process from one platform.</p>
+                        <ul class="card-list">
+                            <li>Create and manage placement drives and job opportunities</li>
+                            <li>Track student applications and interview progress easily</li>
+                            <li>Manage students, recruiters, and placement staff accounts</li>
+                            <li>Publish resources, placement events, and announcements</li>
+                            <li>Access placement analytics, reports, and activity insights</li>
                         </ul>
+                        <p class="card-closing">Run a fully organized placement system without spreadsheets.</p>
                     </div>
-                </div>
-                <div class="compare-card">
-                    <img src="assets/portal_placement_3d.png" alt="Automated Portal Success" class="compare-image">
-                    <div class="compare-card-content">
-                        <h4><span class="highlight-circle-black">How We Do It</span> <span class="cursive-underline-black">Differently</span></h4>
-                        <ul class="compare-list">
-                            <li>Automated end-to-end recruitment lifecycle</li>
-                            <li>Dynamic skill-based talent matching</li>
-                            <li>Unified platform for all stakeholders</li>
-                            <li>Real-time analytics and outcome tracking</li>
+                    <div class="card">
+                        <h3>For Companies</h3>
+                        <p class="card-subtitle">Hire directly from verified college talent pools.</p>
+                        <ul class="card-list">
+                            <li>Post and manage job opportunities across partner colleges</li>
+                            <li>Screen qualified candidates and manage incoming applications</li>
+                            <li>Run structured interview rounds with organized evaluation workflows</li>
+                            <li>Track hiring pipelines, candidate progress, and recruitment analytics</li>
+                            <li>Access a streamlined workflow designed for campus recruitment</li>
                         </ul>
+                        <p class="card-closing">Find, evaluate, and hire the right candidates through one platform.</p>
+                    </div>
+                    <div class="card">
+                        <h3>For Students</h3>
+                        <p class="card-subtitle">Manage your placement journey in one dashboard.</p>
+                        <ul class="card-list">
+                            <li>Build a professional profile and upload resumes</li>
+                            <li>Explore jobs targeted to your college community</li>
+                            <li>Apply to opportunities and track application status</li>
+                            <li>Schedule interviews and manage placement events</li>
+                            <li>Access placement resources and career guidance</li>
+                        </ul>
+                        <p class="card-closing">Everything related to placements in one place.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How it works -->
-    <section id="how-it-works" class="timeline-section section-panel">
-        <div class="container">
-            <div class="section-title">
-                <h2>How It Works So It Always <span class="cursive-underline">Work Out!</span></h2>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>01. Initialization</h3>
-                        <p>Colleges onboard their departments and students onto the Portal registry.</p>
+        <!-- Comparison Section -->
+        <section id="comparison" class="comparison section-panel">
+            <div class="container">
+                <h2 class="compare-main-title">We Built What We Wished <span class="cursive-underline">Existed!</span>
+                </h2>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <img src="assets/traditional_placement_3d.png" alt="Traditional Placement Chaos"
+                            class="compare-image">
+                        <div class="compare-card-content">
+                            <h4><span class="highlight-circle-black">Traditional</span> <span
+                                    class="cursive-underline-black">Placements</span></h4>
+                            <ul class="compare-list">
+                                <li>Manual tracking of student records and scores</li>
+                                <li>Hectic round-to-round selection management</li>
+                                <li>Administrative overload chasing company HRs</li>
+                                <li>Fragmented data and communication silos</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="content">
-                        <h3>02. Skill Audit</h3>
-                        <p>Students complete profiles with verified skills and academic milestones.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>03. Matching</h3>
-                        <p>Companies set criteria and get instantly matched with relevant talent pools.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="content">
-                        <h3>04. Automated Rounds</h3>
-                        <p>Testing and interview rounds are managed and recorded through the platform.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>05. Successful Placement</h3>
-                        <p>Final selections are announced and on-boarding paperwork is digitized.</p>
+                    <div class="compare-card">
+                        <img src="assets/portal_placement_3d.png" alt="Automated Portal Success" class="compare-image">
+                        <div class="compare-card-content">
+                            <h4><span class="highlight-circle-black">How We Do It</span> <span
+                                    class="cursive-underline-black">Differently</span></h4>
+                            <ul class="compare-list">
+                                <li>Automated end-to-end recruitment lifecycle</li>
+                                <li>Dynamic skill-based talent matching</li>
+                                <li>Unified platform for all stakeholders</li>
+                                <li>Real-time analytics and outcome tracking</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Query Section -->
-    <section id="queries" class="contact-section section-panel">
-        <div class="container">
-            <div class="contact-flex">
-                <div>
-                    <h2>Got <span class="cursive-underline">Queries?</span></h2>
-                    <p class="contact-subline"><span class="highlight-circle">We Are Just A Question Away</span></p>
-                    <p style="color: var(--text-secondary); margin-top: 1rem;">Our team is ready to help you architect
-                        your institutional portal or company hiring hub. Reach out and let's bridge the gap.</p>
+        <!-- How it works -->
+        <section id="how-it-works" class="timeline-section section-panel">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How It Works So It Always <span class="cursive-underline">Work Out!</span></h2>
                 </div>
-                <form>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" placeholder="Your Name">
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>01. Initialization</h3>
+                            <p>Colleges onboard their departments and students onto the Portal registry.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="you@institution.com">
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3>02. Skill Audit</h3>
+                            <p>Students complete profiles with verified skills and academic milestones.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea rows="4" placeholder="How Can We Help?"></textarea>
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>03. Matching</h3>
+                            <p>Companies set criteria and get instantly matched with relevant talent pools.</p>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Inquiry</button>
-                </form>
+                    <div class="timeline-item right">
+                        <div class="content">
+                            <h3>04. Automated Rounds</h3>
+                            <p>Testing and interview rounds are managed and recorded through the platform.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="content">
+                            <h3>05. Successful Placement</h3>
+                            <p>Final selections are announced and on-boarding paperwork is digitized.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section section-panel">
-        <div class="container">
-            <div class="section-title" style="text-align: left;">
-                <h2 class="faq-title"><span class="highlight-circle-black">Things You'll Probably Ask</span></h2>
+        <!-- Query Section -->
+        <section id="queries" class="contact-section section-panel">
+            <div class="container">
+                <div class="contact-flex">
+                    <div>
+                        <h2>Got <span class="cursive-underline">Queries?</span></h2>
+                        <p class="contact-subline"><span class="highlight-circle">We Are Just A Question Away</span></p>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Our team is ready to help you
+                            architect
+                            your institutional portal or company hiring hub. Reach out and let's bridge the gap.</p>
+                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="you@institution.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="How Can We Help?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send
+                            Inquiry</button>
+                    </form>
+                </div>
             </div>
-            <div class="faq-accordion">
-                <details>
-                    <summary>Is The Platform Customizable For Our College Branding?</summary>
-                    <p style="color: var(--text-secondary); margin-top: 1rem;">Yes, every institution gets a dedicated
-                        portal with custom branding, specific academic rules, and controlled access for faculty.</p>
-                </details>
-                <details>
-                    <summary>How Do You Verify The Skills Of The Students?</summary>
-                    <p style="color: var(--text-secondary); margin-top: 1rem;">We use a combination of
-                        university-verified scores, built-in skill assessments, and project audits to provide a
-                        comprehensive skill profile.</p>
-                </details>
-                <details>
-                    <summary>Can Companies Manage The Entire Interview Process Here?</summary>
-                    <p style="color: var(--text-secondary); margin-top: 1rem;">Absolutely. From initial screening to the
-                        final offer letter, every round is managed on Portal with automated schedule syncing.</p>
-                </details>
-                <details>
-                    <summary>What Is The Typical Setup Time For An Institution?</summary>
-                    <p style="color: var(--text-secondary); margin-top: 1rem;">Most colleges are up and running within
-                        48 to 72 hours, depending on the scale of data migration required.</p>
-                </details>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section section-panel">
+            <div class="container">
+                <div class="section-title" style="text-align: left;">
+                    <h2 class="faq-title"><span class="highlight-circle-black">Things You'll Probably Ask</span></h2>
+                </div>
+                <div class="faq-accordion">
+                    <details>
+                        <summary>Is The Platform Customizable For Our College Branding?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Yes, every institution gets a
+                            dedicated
+                            portal with custom branding, specific academic rules, and controlled access for faculty.</p>
+                    </details>
+                    <details>
+                        <summary>How Do You Verify The Skills Of The Students?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">We use a combination of
+                            university-verified scores, built-in skill assessments, and project audits to provide a
+                            comprehensive skill profile.</p>
+                    </details>
+                    <details>
+                        <summary>Can Companies Manage The Entire Interview Process Here?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Absolutely. From initial screening to
+                            the
+                            final offer letter, every round is managed on Portal with automated schedule syncing.</p>
+                    </details>
+                    <details>
+                        <summary>What Is The Typical Setup Time For An Institution?</summary>
+                        <p style="color: var(--text-secondary); margin-top: 1rem;">Most colleges are up and running
+                            within
+                            48 to 72 hours, depending on the scale of data migration required.</p>
+                    </details>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Footer -->
         <footer class="section-panel">
@@ -932,7 +942,7 @@
     </div>
 
     <script>
-        (function() {
+        (function () {
             var nav = document.querySelector('nav');
             var hero = document.querySelector('.hero');
 

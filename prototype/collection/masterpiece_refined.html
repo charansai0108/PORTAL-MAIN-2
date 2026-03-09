@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal | Best-in-Class UI/UX Redesign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #F9FAFB;
+            --bg-pure: #ffffff;
+            --text-main: #0F172A;
+            --text-secondary: #475569;
+            --accent: #10B981;
+            --accent-soft: rgba(16, 185, 129, 0.08);
+            --accent-glow: rgba(16, 185, 129, 0.15);
+            --border: rgba(15, 23, 42, 0.06);
+            --glass: rgba(255, 255, 255, 0.85);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.06);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-xl: 32px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.03em;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Sophisticated Floating Navigation --- */
+        .nav-wrapper {
+            position: fixed;
+            top: 1.5rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        nav {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            padding: 0.8rem 2.5rem;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        nav:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-glow);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 0.85rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+
+        /* --- Architectural Hero --- */
+        .hero {
+            padding-top: 200px;
+            padding-bottom: 120px;
+            background: var(--bg-pure);
+            border-bottom-left-radius: 80px;
+            border-bottom-right-radius: 80px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero h1 .cursive {
+            font-family: 'Caveat', cursive;
+            text-decoration: underline;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1100px;
+            margin: 4rem auto 0;
+            display: block;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.08));
+            transition: var(--transition);
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .hero-stats {
+            margin-top: 6rem;
+        }
+
+        .stat-card {
+            display: inline-block;
+            padding: 3rem 5rem;
+            background: var(--bg-deep);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border);
+        }
+
+        .stat-card h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight-circle {
+            background: var(--accent-soft);
+            padding: 0 0.5rem;
+            border-radius: 4px;
+        }
+
+        /* --- Bento 2.0 Feature Cards --- */
+        section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--accent);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .bento {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .bento:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .bento h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .bento .subtitle {
+            font-weight: 800;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .bento ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .bento li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .bento li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        .bento .closing {
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .col-4 {
+            grid-column: span 4;
+        }
+
+        .col-8 {
+            grid-column: span 8;
+        }
+
+        /* --- Modern Comparison Slider --- */
+        .comparison-system {
+            background: var(--bg-pure);
+            border-radius: 60px;
+            padding: 80px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            margin-top: 4rem;
+        }
+
+        .compare-side {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .compare-image-wrap {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .compare-image-wrap:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+
+        .compare-image-wrap img {
+            width: 100%;
+            display: block;
+        }
+
+        .compare-content h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .compare-content h4 span {
+            background: var(--text-main);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .compare-content h4.portal span {
+            background: var(--accent);
+        }
+
+        .compare-list {
+            list-style: none;
+        }
+
+        .compare-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .compare-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 900;
+        }
+
+        /* --- Minimalist Timeline --- */
+        .timeline-track {
+            position: relative;
+            max-width: 900px;
+            margin: 60px auto;
+        }
+
+        .timeline-track::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--border);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid var(--bg-pure);
+            z-index: 2;
+        }
+
+        .timeline-bubble {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 0 40px;
+            width: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-bubble {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        /* --- Elite Contact Hub --- */
+        .contact-hub {
+            background: var(--bg-pure);
+            border-radius: var(--radius-xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            padding: 100px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .contact-info h2 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            background: var(--bg-deep);
+            padding: 4rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .field-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        /* --- Interactive FAQ --- */
+        .faq-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--bg-pure);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        details[open] {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        summary {
+            font-size: 1.2rem;
+            font-weight: 800;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: var(--transition);
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .answer {
+            padding-top: 2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .card-grid,
+            .compare-grid,
+            .contact-hub {
+                grid-template-columns: 1fr;
+            }
+
+            .col-4,
+            .col-8 {
+                grid-column: span 12;
+            }
+
+            .timeline-track::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                justify-content: flex-start;
+                padding-right: 0;
+                padding-left: 60px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-bubble {
+                margin: 0;
+            }
+
+            nav {
+                gap: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-image {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#" class="logo">SETU पोर्टल <span>1.0</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#comparison">Why Us</a>
+                <a href="#how-it-works">Process</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <a href="#queries" class="btn btn-primary">Elite Access</a>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <div class="container" style="z-index: 1; position: relative;">
+            <h1>Placement Made <span>10X <span class="cursive">Simpler.</span></span></h1>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <h3>We Bridge The Gap</h3>
+                    <p><span class="highlight-circle">3 months of average time spent by coordinator chasing
+                            companies</span></p>
+                </div>
+            </div>
+            <img src="../../assets/3d_students_isolated-removebg-preview-removebg-preview.png" alt="Portal Vision"
+                class="hero-image">
+        </div>
+    </section>
+
+    <!-- What's even this? -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>What's Even This?</h2>
+                <p>A unified, two-sided platform architected for modern colleges and elite companies seeking top-tier
+                    talent without the administrative friction.</p>
+            </div>
+            <div class="card-grid">
+                <div class="bento col-8">
+                    <h3>For Colleges</h3>
+                    <p class="subtitle">Manage the entire placement process from one platform.</p>
+                    <ul>
+                        <li>Create and manage placement drives and job opportunities</li>
+                        <li>Track student applications and interview progress easily</li>
+                        <li>Manage students, recruiters, and placement staff accounts</li>
+                        <li>Publish resources, placement events, and announcements</li>
+                        <li>Access placement analytics, reports, and activity insights</li>
+                    </ul>
+                    <p class="closing">Run a fully organized placement system without spreadsheets.</p>
+                </div>
+                <div class="bento col-4">
+                    <h3>For Students</h3>
+                    <p class="subtitle">Manage your placement journey in one dashboard.</p>
+                    <ul>
+                        <li>Build a professional profile and upload resumes</li>
+                        <li>Explore jobs targeted to your college community</li>
+                        <li>Apply to opportunities and track application status</li>
+                        <li>Schedule interviews and manage placement events</li>
+                        <li>Access placement resources and career guidance</li>
+                    </ul>
+                    <p class="closing">Everything related to placements in one place.</p>
+                </div>
+                <div class="bento col-12" style="grid-column: span 12;">
+                    <h3>For Companies</h3>
+                    <p class="subtitle">Hire directly from verified college talent pools.</p>
+                    <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: start;">
+                        <ul>
+                            <li>Post and manage job opportunities across partner colleges</li>
+                            <li>Screen qualified candidates and manage incoming applications</li>
+                            <li>Run structured interview rounds with organized evaluation workflows</li>
+                            <li>Track hiring pipelines, candidate progress, and recruitment analytics</li>
+                            <li>Access a streamlined workflow designed for campus recruitment</li>
+                        </ul>
+                        <div
+                            style="background: var(--bg-deep); border-radius: 12px; padding: 2rem; border-left: 4px solid var(--accent);">
+                            <p class="closing" style="font-size: 1.1rem;">Find, evaluate, and hire the right candidates
+                                through one platform.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison">
+        <div class="container">
+            <div class="comparison-system">
+                <div class="section-header">
+                    <h2>We Built What We Wished <span class="cursive" style="text-decoration: none;">Existed!</span>
+                    </h2>
+                </div>
+                <div class="compare-grid">
+                    <div class="compare-side">
+                        <div class="compare-image-wrap">
+                            <img src="../../assets/traditional_placement_3d.png" alt="Traditional Chaos">
+                        </div>
+                        <div class="compare-content">
+                            <h4><span>TRADITIONAL</span> Placements</h4>
+                            <ul class="compare-list">
+                                <li>Manual tracking of student records and scores</li>
+                                <li>Hectic round-to-round selection management</li>
+                                <li>Administrative overload chasing company HRs</li>
+                                <li>Fragmented data and communication silos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="compare-side shadow-portal">
+                        <div class="compare-image-wrap" style="border-color: var(--accent);">
+                            <img src="../../assets/portal_placement_3d.png" alt="Portal Order">
+                        </div>
+                        <div class="compare-content">
+                            <h4 class="portal"><span>PORTAL</span> Evolution</h4>
+                            <ul class="compare-list">
+                                <li>Automated, cloud-synced placement infrastructure</li>
+                                <li>Real-time interview monitoring and scheduling</li>
+                                <li>Direct Institutional-to-Corporate pipeline</li>
+                                <li>Unified dashboard for all placement stakeholders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" style="background: var(--bg-pure);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Process Layer</h2>
+                <p>Engineered for outcome consistency.</p>
+            </div>
+            <div class="timeline-track">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-bubble">
+                        <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Step 01</h3>
+                        <p style="font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Launch Drive</p>
+                        <p>Faculty creates placement events and targets eligible student pools.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-bubble">
+                        <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Step 02</h3>
+                        <p style="font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Profile
+                            Verification</p>
+                        <p>Students upload resumes and verified academic credentials. No fake data.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-bubble">
+                        <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Step 03</h3>
+                        <p style="font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Corporate Sync</p>
+                        <p>Companies launch screening rounds and manage interview slots in one dashboard.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-bubble">
+                        <h3 style="margin-bottom: 0.5rem; color: var(--accent);">Step 04</h3>
+                        <p style="font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem;">Outcome Capture</p>
+                        <p>Offers are rolled out and analytics are generated for institutional reporting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Contact -->
+    <section id="queries">
+        <div class="container">
+            <div class="contact-hub">
+                <div class="contact-info">
+                    <h2>Have Queries?<br><span class="cursive"
+                            style="color: var(--accent); text-decoration: none;">We're Here.</span></h2>
+                    <p>Building the Future of Institutional Growth.</p>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); font-weight: 500;">Fill out the brief and
+                        our architecture team will connect with your placement office.</p>
+                </div>
+                <form>
+                    <div class="field-group">
+                        <label>Identity</label>
+                        <input type="text" placeholder="Full Name or Institution">
+                    </div>
+                    <div class="field-group">
+                        <label>Communication</label>
+                        <input type="email" placeholder="professional@email.com">
+                    </div>
+                    <div class="field-group">
+                        <label>Your Requirement</label>
+                        <textarea rows="4" placeholder="How can we assist your placement evolve?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary"
+                        style="padding: 1.2rem; justify-content: center; font-size: 1rem;">Initialize Briefing</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <p class="cursive" style="font-size: 3rem; margin-bottom: 0;">FAQ</p>
+                <h2 style="font-size: 2.5rem;">Curiosity Satisfied.</h2>
+            </div>
+            <div class="faq-grid">
+                <details>
+                    <summary>What is SETU Portal?</summary>
+                    <div class="answer">SETU is a high-performance recruitment infrastructure designed to connect
+                        universities and corporations through a verified data layer.</div>
+                </details>
+                <details>
+                    <summary>How does the verification work?</summary>
+                    <div class="answer">Every student profile is linked to institutional academic records, ensuring that
+                        skills and CGPA data are 100% accurate for recruiters.</div>
+                </details>
+                <details>
+                    <summary>Is it free for colleges?</summary>
+                    <div class="answer">We offer tiered engagement models depending on the size of the student body and
+                        recruiter network. Contact us for a custom architecture briefing.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Security</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+            <p style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">© 2026 SETU | Architectural
+                Placement Excellence. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Subtle Reveal Animation on Scroll
+        const items = document.querySelectorAll('.bento, .compare-side', '.timeline-bubble', '.hero-content');
+
+        const revealOnScroll = () => {
+            items.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial call
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+    </script>
+
+</body>
+
+</html>
