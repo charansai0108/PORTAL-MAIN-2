@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Masterpiece | Institutional Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #F8FAFC;
+            --bg-surface: #FFFFFF;
+            --text-main: #0F172A;
+            --text-secondary: #64748B;
+            --accent: #10B981;
+            /* Emerald Accent */
+            --accent-dark: #059669;
+            --accent-soft: #F1FDF9;
+            --border-soft: #E2E8F0;
+            --glass: rgba(255, 255, 255, 0.85);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        section {
+            padding: 140px 0;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 4rem);
+            max-width: 1100px;
+            height: 70px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            align-items: center;
+            padding: 0 2.5rem;
+            z-index: 1000;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            margin-left: auto;
+            margin-right: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: white;
+            border: 1px solid var(--text-main);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-soft);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            background: var(--bg-main);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding-top: 260px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        /* --- Grid Layouts --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* --- Solutions Suite --- */
+        .solutions {
+            background: white;
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .solution-card {
+            padding: 4rem;
+            border-radius: 24px;
+            background: var(--bg-main);
+            transition: var(--transition-smooth);
+            border: 1px solid transparent;
+        }
+
+        .solution-card:hover {
+            background: white;
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* --- Data Intelligence --- */
+        .data-intelligence {
+            background: var(--text-main);
+            color: white;
+            border-radius: 40px;
+            margin: 0 2rem;
+            padding: 120px 4rem;
+        }
+
+        .dashboard-mockup {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            transition: var(--transition-smooth);
+        }
+
+        .dashboard-mockup:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- Recruiter Hub --- */
+        .recruiter-hub {
+            border-radius: 24px;
+        }
+
+        .feature-tag {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- Compliance --- */
+        .compliance-row {
+            display: flex;
+            justify-content: space-around;
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-soft);
+            opacity: 0.6;
+            filter: grayscale(1);
+        }
+
+        .compliance-item {
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            background: white;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .data-intelligence {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            nav {
+                width: calc(100% - 2rem);
+                padding: 0 1.5rem;
+                height: 60px;
+                top: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                /* Hide desktop links on mobile for simplicity/cleanliness */
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" class="logo">Portal<span>//</span>Masterpiece</a>
+        <div class="nav-links">
+            <a href="#institutions">Institutions</a>
+            <a href="#recruiters">Recruiters</a>
+            <a href="#intelligence">Intelligence</a>
+        </div>
+        <a href="#" class="btn btn-primary" style="padding: 0.6rem 1.8rem;">Request Demo</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero"
+        style="background: url('assets/prof_network.png') no-repeat center center; background-size: cover; background-attachment: fixed;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(248, 250, 252, 0.9);">
+        </div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <span class="hero-badge">Institutional Excellence 2026</span>
+            <h1>Architecting the Future<br>of Higher Ed Outcomes.</h1>
+            <p>A high-fidelity ecosystem connecting elite institutions with global recruiter intelligence through a
+                unified registry protocol.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center;">
+                <a href="#institutions" class="btn btn-primary">Elite Institutional Suite</a>
+                <a href="#recruiters" class="btn btn-outline">Recruiter Hub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Institutional Suite -->
+    <section id="institutions" class="solutions">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 8rem;">
+                <span class="feature-tag">Domain 01 // Universities</span>
+                <h2 style="font-size: 3.5rem;">The Institutional Intelligence Suite.</h2>
+            </div>
+            <div class="grid-2">
+                <div class="solution-card">
+                    <div class="solution-icon">◈</div>
+                    <h3>Unified Outcome Matrix</h3>
+                    <p>Real-time tracking of student lifecycle from enrollment to executive placement. Data-driven
+                        strategy at every milestone.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">◈</div>
+                    <h3>Automated Compliance</h3>
+                    <p>Institutional-grade reporting for global accreditation and regulatory standards. Security and
+                        transparency by design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Intelligence Section -->
+    <section id="intelligence" class="data-intelligence">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="feature-tag" style="color: var(--accent);">Proof of Capability</span>
+                    <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">The Master Registry Intelligence.</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 3rem;">Our
+                        multi-dimensional engine processes 10B+ data points to predict career trajectories and align
+                        curriculum with market demand.</p>
+                    <ul style="list-style: none; color: #94A3B8;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> Skill Evolution Mapping
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> Direct Institutional Verification
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: var(--accent);">✓</span> Predictive Placement Analytics
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="assets/prof_dashboard.png" alt="SaaS Dashboard Mockup" class="dashboard-mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiter Engagement Hub -->
+    <section id="recruiters">
+        <div class="container">
+            <div class="grid-2" style="direction: rtl;">
+                <div style="direction: ltr;">
+                    <span class="feature-tag">Domain 02 // Hiring</span>
+                    <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">The Recruiter Engagement Hub.</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 2rem;">Stop chasing
+                        resumes. Start accessing a verified pipeline of pre-screened institutional talent aligned with
+                        your specific growth needs.</p>
+                    <div class="grid-2" style="gap: 2rem; margin-top: 3rem;">
+                        <div
+                            style="padding: 2rem; background: white; border-radius: 16px; border: 1px solid var(--border-soft);">
+                            <h4 style="margin-bottom: 1rem;">Precision Filters</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">Skill-verified profiles directly
+                                from institutional registries.</p>
+                        </div>
+                        <div
+                            style="padding: 2rem; background: white; border-radius: 16px; border: 1px solid var(--border-soft);">
+                            <h4 style="margin-bottom: 1rem;">Direct Mentorship</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">Build early connections with
+                                future leaders through structured cohorts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/prof_group.png" alt="Recruiter Engagement"
+                        style="width: 100%; border-radius: 24px; box-shadow: var(--shadow-md);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bridge Section -->
+    <section style="background: white; padding: 100px 0;">
+        <div class="container">
+            <div class="grid-2">
+                <img src="assets/prof_bridge.png" alt="Network Bridge" style="width: 100%; border-radius: 20px;">
+                <div>
+                    <h2 style="font-size: 3rem; margin-bottom: 2rem;">Global Talent Network.</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 2rem;">By reducing
+                        technical friction between academic departments and corporate hiring hubs, we reclamation 3
+                        months of administrative lead time for every hiring season.</p>
+                    <a href="#" class="btn btn-primary">Join the Network</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Compliance -->
+    <section>
+        <div class="container">
+            <div class="compliance-row">
+                <div class="compliance-item">SOC2 Compliant</div>
+                <div class="compliance-item">GDPR Ready</div>
+                <div class="compliance-item">SOX Aligned</div>
+                <div class="compliance-item">SSL Secure</div>
+            </div>
+            <div class="grid-2" style="margin-top: 6rem;">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Strategic Inquiry</h2>
+                    <p style="color: var(--text-secondary);">Request a custom consultation to architect your
+                        institutional portal.</p>
+                </div>
+                <div
+                    style="background: white; padding: 3rem; border-radius: 24px; border: 1px solid var(--border-soft); box-shadow: var(--shadow-md);">
+                    <input type="email" placeholder="Institutional email address"
+                        style="width: 100%; padding: 1.2rem; border-radius: 8px; border: 1px solid var(--border-soft); margin-bottom: 1rem;">
+                    <button class="btn btn-primary" style="width: 100%;">Begin Consultation</button>
+                    <p style="font-size: 0.75rem; text-align: center; margin-top: 1rem; color: var(--text-secondary);">
+                        Trusted by 300+ universities worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="logo" style="margin-bottom: 1.5rem;">Portal<span>//</span>Masterpiece</a>
+                    <p style="color: var(--text-secondary);">Redefining the outcome standard for the next generation of
+                        academic leadership.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 2rem;">Institutions</h4>
+                    <ul style="list-style: none; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Strategy Suite</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Outcome Registry</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Accreditation Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 2rem;">Recruiters</h4>
+                    <ul style="list-style: none; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Talent Sourcing</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Data Analytics</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Enterprise API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 2rem;">Legal</h4>
+                    <ul style="list-style: none; color: var(--text-secondary);">
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Privacy Policy</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Terms of Service</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#"
+                                style="text-decoration: none; color: inherit;">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                style="margin-top: 8rem; padding-top: 3rem; border-top: 1px solid var(--border-soft); display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary);">
+                <p>© 2026 Portal Premium Global. All rights reserved.</p>
+                <div style="display: flex; gap: 2rem;">
+                    <span>Sitemap</span>
+                    <span>Institutional Login</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Obsidian | The Future of Prestige</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --obsidian: #020617;
+            --midnight: #0F172A;
+            --slate: #1E293B;
+            --indigo: #6366F1;
+            --indigo-glow: rgba(99, 102, 241, 0.4);
+            --silver: #E2E8F0;
+            --text-main: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --glass: rgba(15, 23, 42, 0.8);
+            --transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--obsidian);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.03em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            padding: 0 4rem;
+            z-index: 1000;
+            background: linear-gradient(to bottom, var(--obsidian), transparent);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            height: 80px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--indigo);
+            border-radius: 4px;
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px var(--indigo-glow);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            margin-left: auto;
+            margin-right: 4rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            background: url('assets/obsidian_network.png') no-repeat center center;
+            background-size: cover;
+            filter: blur(2px);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 7rem;
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            background: linear-gradient(to bottom, #FFFFFF 30%, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 3.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 1.2rem 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .btn-indigo {
+            background: var(--indigo);
+            color: white;
+            box-shadow: 0 0 30px var(--indigo-glow);
+        }
+
+        .btn-indigo:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 50px var(--indigo-glow);
+        }
+
+        /* --- Intelligence Grid --- */
+        section {
+            padding: 180px 0;
+        }
+
+        .section-header {
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .intelligence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .obsidian-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 4rem 3rem;
+            border-radius: 12px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .obsidian-card:hover {
+            border-color: var(--indigo);
+            background: rgba(15, 23, 42, 0.6);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--indigo);
+            margin-bottom: 2rem;
+        }
+
+        .obsidian-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Dashboard Immersive --- */
+        .immersive-showcase {
+            background: var(--midnight);
+            border-radius: 48px;
+            padding: 120px 5%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            position: relative;
+        }
+
+        .dashboard-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+        }
+
+        /* --- Partner Section --- */
+        .partners {
+            text-align: center;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            margin-top: 80px;
+        }
+
+        .stat-item h4 {
+            font-size: 4rem;
+            color: var(--indigo);
+            line-height: 1;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* --- Impact Section --- */
+        .impact-v2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+        }
+
+        .impact-img {
+            width: 100%;
+            border-radius: 20px;
+            filter: drop-shadow(0 0 30px var(--indigo-glow));
+        }
+
+        /* --- Form --- */
+        .inquiry-box {
+            background: var(--glass);
+            padding: 5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .obsidian-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 2rem;
+            font-family: inherit;
+        }
+
+        .obsidian-input:focus {
+            outline: none;
+            border-color: var(--indigo);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 120px 0 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .intelligence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase-grid,
+            .impact-v2 {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            nav {
+                padding: 0 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-mark"></div>
+            Obsidian Enterprise
+        </a>
+        <div class="nav-links">
+            <a href="#intel">Intelligence</a>
+            <a href="#data">Command</a>
+            <a href="#impact">Prestige</a>
+        </div>
+        <a href="#" class="btn btn-indigo" style="padding: 0.8rem 2rem; font-size: 0.75rem;">Request Access</a>
+    </nav>
+
+    <!-- Global Hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>The New Standard<br>of Prestige.</h1>
+            <p>Unified talent intelligence for elite institutions and global market leaders. Driven by the Obsidian
+                Protocol.</p>
+            <a href="#intel" class="btn btn-indigo">Explore Intelligence</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Intelligence Grid -->
+        <section id="intel">
+            <div class="section-header">
+                <h2
+                    style="color: var(--indigo); font-size: 1rem; text-transform: uppercase; letter-spacing: 0.4em; margin-bottom: 2rem;">
+                    Registry Intelligence</h2>
+                <h2>Engineered for Authority.</h2>
+            </div>
+            <div class="intelligence-grid">
+                <div class="obsidian-card">
+                    <div class="card-icon">✧</div>
+                    <h3>Global Talent Node</h3>
+                    <p>Real-time mapping of student capability relative to global market spikes.</p>
+                </div>
+                <div class="obsidian-card">
+                    <div class="card-icon">✧</div>
+                    <h3>Encrypted Veracity</h3>
+                    <p>Institutional-grade verification ensuring every data point is immutable and trusted.</p>
+                </div>
+                <div class="obsidian-card">
+                    <div class="card-icon">✧</div>
+                    <h3>Predictive Flows</h3>
+                    <p>AI-driven foresight into career trajectories and institutional prestige shifts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Command Center -->
+        <section id="data" class="immersive-showcase">
+            <div class="showcase-grid">
+                <div>
+                    <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">The Command Center of Placements.</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 3rem;">View your
+                        institutional performance through a high-definition lens. Our dashboard doesn't just show data;
+                        it shows the future of your student body.</p>
+                    <div style="display: flex; gap: 2rem;">
+                        <div>
+                            <h4 style="font-size: 2rem; color: var(--indigo);">99%</h4>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary);">Veracity Rate</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 2rem; color: var(--indigo);">12ms</h4>
+                            <p style="font-size: 0.7rem; color: var(--text-secondary);">Sync Latency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-container">
+                    <img src="assets/obsidian_dashboard.png" alt="Obsidian Dashboard" class="dashboard-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Stats -->
+        <section class="partners">
+            <h2>The Power of the Network.</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h4>400+</h4>
+                    <p>Ivy-Tier Partners</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1.2M</h4>
+                    <p>Verified Talent</p>
+                </div>
+                <div class="stat-item">
+                    <h4>85%</h4>
+                    <p>Career Alignment</p>
+                </div>
+                <div class="stat-item">
+                    <h4>$4B</h4>
+                    <p>Value Facilitated</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact / Prestige -->
+        <section id="impact" class="impact-v2">
+            <div>
+                <img src="assets/obsidian_impact.png" alt="Obsidian Impact Visual" class="impact-img">
+            </div>
+            <div>
+                <h2 style="font-size: 4rem; line-height: 1.1; margin-bottom: 2.5rem;">Prestige is not a metric. It's an
+                    outcome.</h2>
+                <p style="color: var(--text-secondary); font-size: 1.3rem; margin-bottom: 3rem;">We bridge the gap
+                    between academic potential and economic reality by automating the friction of engagement. Your
+                    students deserve the world stage.</p>
+                <a href="#" class="btn btn-indigo">Join the Elite Registry</a>
+            </div>
+        </section>
+
+        <!-- Inquiry -->
+        <section>
+            <div class="inquiry-box text-center" style="text-align: center;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">Begin Your Evolution.</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 4rem;">Request an exclusive briefing on the
+                    Obsidian Registry Protocol.</p>
+                <form>
+                    <input type="text" class="obsidian-input" placeholder="Professional Email or Institutional ID">
+                    <button class="btn btn-indigo" style="width: 100%;">Initialize Briefing</button>
+                    <p style="font-size: 0.7rem; margin-top: 2rem; color: var(--text-secondary); opacity: 0.5;">Secured
+                        by Obsidian End-to-End Encryption.</p>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <div class="logo" style="margin-bottom: 2rem;">
+                        <div class="logo-mark"></div>
+                        Obsidian
+                    </div>
+                    <p style="color: var(--text-secondary); max-width: 300px;">The definitive intelligence layer for
+                        institutional and recruiter collaboration.</p>
+                </div>
+                <div style="display: flex; gap: 8rem;">
+                    <div>
+                        <h4
+                            style="margin-bottom: 2rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.2em;">
+                            Platform</h4>
+                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="margin-bottom: 1rem;">Registry</li>
+                            <li style="margin-bottom: 1rem;">Intelligence</li>
+                            <li style="margin-bottom: 1rem;">Nodes</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4
+                            style="margin-bottom: 2rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.2em;">
+                            Legal</h4>
+                        <ul style="list-style: none; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="margin-bottom: 1rem;">Privacy</li>
+                            <li style="margin-bottom: 1rem;">Protocol</li>
+                            <li style="margin-bottom: 1rem;">Security</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Obsidian Enterprise Protocol. Global Registry Patent Pending.</p>
+                <div style="display: flex; gap: 3rem;">
+                    <span>System Status: 100% Verified</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function () {
+            var nav = document.getElementById('navbar');
+            if (window.pageYOffset > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        };
+    </script>
+</body>
+
+</html>

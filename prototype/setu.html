@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setu | Connect, Hire, Grow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-cream: #FFFAF0;
+            --primary: #FFB800;
+            --primary-dark: #E6A600;
+            --charcoal: #1A1A1A;
+            --gray-light: #F3F3F3;
+            --white: #FFFFFF;
+            --border-radius: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lexend', sans-serif;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(255, 250, 240, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--charcoal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Lexend', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--charcoal);
+            border: 2px solid var(--charcoal);
+        }
+
+        .btn-primary {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(255, 184, 0, 0.3);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 4rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.1);
+        }
+
+        /* --- Role Choice Section --- */
+        .role-choice {
+            padding: 6rem 5%;
+            background: var(--charcoal);
+            color: var(--white);
+            border-radius: 60px 60px 0 0;
+            text-align: center;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--charcoal);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-choice h2 {
+            font-size: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .role-card {
+            background: #2A2A2A;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid #3A3A3A;
+            text-decoration: none;
+            color: white;
+        }
+
+        .role-card:hover {
+            background: var(--primary);
+            color: var(--charcoal);
+            transform: translateY(-10px);
+        }
+
+        .role-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .role-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .role-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .role-card .btn-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+        }
+
+        /* --- Feature Sections --- */
+        .features {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8rem;
+            align-items: center;
+            margin-bottom: 8rem;
+        }
+
+        .feature-block.reverse {
+            direction: rtl;
+        }
+
+        .feature-block.reverse .feature-content {
+            direction: ltr;
+        }
+
+        .feature-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: var(--charcoal);
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+
+        .feature-illustration img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        /* --- Stats Section --- */
+        .stats {
+            background: #FFF;
+            padding: 4rem 5%;
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #EEE;
+            border-bottom: 1px solid #EEE;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-family: 'Lexend', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-item .label {
+            font-weight: 500;
+            color: #888;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 6rem 5% 2rem;
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #AAA;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- Animations --- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* --- Timeline Section --- */
+        .timeline-section {
+            padding: 8rem 5%;
+            text-align: center;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background: dashed var(--primary);
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .timeline-step {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            padding: 0 1rem;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+
+        .timeline-step:hover .step-number {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .timeline-step h4 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-step p {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        @media (max-width: 1024px) {
+            .hero, .feature-block, .role-grid, .timeline-container {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+                text-align: center;
+            }
+            .timeline-container::before { display: none; }
+            .timeline-step { margin-bottom: 2rem; }
+            .hero-content h1 { font-size: 3rem; }
+            .feature-block.reverse { direction: ltr; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .feature-content h2 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SETU</div>
+        <ul class="nav-links">
+            <li><a href="#students">For Students</a></li>
+            <li><a href="#recruiters">For Recruiters</a></li>
+            <li><a href="#colleges">For Colleges</a></li>
+            <li><a href="#stats">Stats</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="#" class="btn btn-outline">Login</a>
+            <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="section-tag">Empowering the Ecosystem</span>
+            <h1>The Complete <span>Ecosystem</span> for Success.</h1>
+            <p>A unified platform connecting bright students, top-tier recruiters, and prestigious colleges in one seamless digital campus.</p>
+            <div class="nav-actions" style="justify-content: flex-start; margin-top: 1rem;">
+                <a href="#" class="btn btn-primary">Join the Network</a>
+                <a href="#" class="btn btn-outline">Watch Demo</a>
+            </div>
+        </div>
+        <div class="hero-image animate-float">
+            <img src="assets/hero_ecosystem.png" alt="Portal Ecosystem Illustration">
+        </div>
+    </section>
+
+    <section class="stats" id="stats">
+        <div class="stat-item">
+            <span class="number">12k+</span>
+            <span class="label">Verified Students</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">500+</span>
+            <span class="label">Top Recruiters</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">150+</span>
+            <span class="label">Partner Colleges</span>
+        </div>
+        <div class="stat-item">
+            <span class="number">98%</span>
+            <span class="label">Placement Rate</span>
+        </div>
+    </section>
+
+    <section class="role-choice">
+        <span class="section-tag" style="background: rgba(255,255,255,0.1); color: var(--primary);">Choose Your Path</span>
+        <h2>How can we help you <span>today?</span></h2>
+        
+        <div class="role-grid">
+            <a href="#students" class="role-card">
+                <h3>Students</h3>
+                <p>Launch your career with AI-powered matching and direct access to top global brands.</p>
+                <span class="btn-small">Learn More →</span>
+            </a>
+            <a href="#recruiters" class="role-card">
+                <h3>Recruiters</h3>
+                <p>Find your next superstar hire using precision filters and streamlined campus drives.</p>
+                <span class="btn-small">Learn More →</span>
+            </a>
+            <a href="#colleges" class="role-card">
+                <h3>Colleges</h3>
+                <p>Empower your placement cell with real-time tracking, alumni insights, and data-driven growth.</p>
+                <span class="btn-small">Learn More →</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="timeline-section" id="journey">
+        <span class="section-tag">The Setu Path</span>
+        <h2>Your Journey to <span>Success.</span></h2>
+        <div class="timeline-container">
+            <div class="timeline-step">
+                <div class="step-number">1</div>
+                <h4>Register</h4>
+                <p>Quick onboarding to start your career journey.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">2</div>
+                <h4>AI Scan</h4>
+                <p>Our AI polishes your profile for recruiters.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">3</div>
+                <h4>Match</h4>
+                <p>Discovery companies that fit your skills.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">4</div>
+                <h4>Interview</h4>
+                <p>Direct communication with hirers.</p>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">5</div>
+                <h4>Select</h4>
+                <p>Accept your offer and start growing.</p>
+            </div>
+        </div>
+        <div class="hero-image" style="max-width: 900px; margin: 4rem auto 0;">
+            <img src="assets/student_journey.png" alt="Student Journey Illustration">
+        </div>
+    </section>
+
+    <section class="features" id="students">
+        <div class="feature-block">
+            <div class="feature-content">
+                <span class="section-tag">For Students</span>
+                <h2>Your Career, <span>Supercharged.</span></h2>
+                <p>Stop sending resumes into the void. Our platform ensures you are seen by the companies that actually need your skills.</p>
+                <ul class="feature-list">
+                    <li>AI-Optimized Resume Builder</li>
+                    <li>One-Click Application to Elite Drives</li>
+                    <li>Direct Chat with Hiring Managers</li>
+                    <li>Skill-Based Verification Tags</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Create Profile</a>
+            </div>
+            <div class="feature-illustration">
+                <img src="assets/student_success.png" alt="Student Success Illustration">
+            </div>
+        </div>
+
+        <div class="feature-block reverse" id="recruiters">
+            <div class="feature-content">
+                <span class="section-tag">For Recruiters</span>
+                <h2>The Precision <span>Hiring Funnel.</span></h2>
+                <p>We solve the 'volume' problem. Our funnel identifies the top 1% of talent tailored to your specific tech stack and culture.</p>
+                <ul class="feature-list">
+                    <li>Advanced Skill-Based Filters</li>
+                    <li>End-to-End Drive Management</li>
+                    <li>Collaborative Interview Scheduling</li>
+                    <li>Verified Academic Records</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Start Hiring</a>
+            </div>
+            <div class="feature-illustration">
+                <img src="assets/hiring_funnel.png" alt="Hiring Funnel Illustration">
+            </div>
+        </div>
+
+        <div class="feature-block" id="colleges">
+            <div class="feature-content">
+                <span class="section-tag">For Colleges</span>
+                <h2>Data-Driven <span>Excellence.</span></h2>
+                <p>Institutional analytics that go beyond simple spreadsheets. Understand exactly where your students excel and where they need support.</p>
+                <ul class="feature-list">
+                    <li>Real-time Placement Analytics</li>
+                    <li>Automated Company Outreach</li>
+                    <li>Alumni Performance Tracking</li>
+                    <li>Centralised Student Data Vault</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Partner with Us</a>
+            </div>
+            <div class="feature-illustration">
+                <img src="assets/analytics_dashboard.png" alt="Analytics Dashboard Illustration">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>SETU</h2>
+                <p>Connecting talent with opportunity since 2024. The future of campus placements is here.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Recruiters</a></li>
+                    <li><a href="#">Colleges</a></li>
+                    <li><a href="#">Features</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">API Docs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Setu Placement Ecosystem. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterpiece | Hand-Drawn Career Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@300;400;600;800&family=Architects+Daughter&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --accent: #2c2c2c;
+            --ink: #222222;
+            --muted: #888888;
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .sketch-font {
+            font-family: 'Architects Daughter', cursive;
+        }
+
+        .cursive {
+            font-family: 'Caveat', cursive;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* --- Sketchy Border Utilities --- */
+        .sketch-border {
+            border: 2px solid var(--ink);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .sketch-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid var(--ink);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            pointer-events: none;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+        }
+
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero .underline {
+            display: block;
+            width: 300px;
+            height: 10px;
+            background: var(--ink);
+            margin: 10px auto;
+            border-radius: 5px;
+            transform: rotate(-1deg);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: var(--muted);
+        }
+
+        /* --- Comparison Section --- */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comp-card {
+            padding: 50px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .comp-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .comp-card.traditional {
+            background: #fdfdfd;
+            border: 2px dashed #ddd;
+        }
+
+        .comp-card.different {
+            background: #fff;
+            border: 2px solid var(--ink);
+            box-shadow: 10px 10px 0px var(--ink);
+        }
+
+        .comp-card.different:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 15px 15px 0px var(--ink);
+        }
+
+        /* --- Process (Timeline) --- */
+        .process {
+            text-align: center;
+        }
+
+        .process h2 {
+            font-size: 3.5rem;
+            margin-bottom: 60px;
+            line-height: 1.2;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 40px;
+            width: 2px;
+            height: 100px;
+            background: var(--ink);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--ink);
+            border-radius: 50%;
+            background: white;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            margin-left: 40px;
+            text-align: left;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Impact Section --- */
+        .impact {
+            background: #f9f9f9;
+            border-radius: 40px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 100px 50px;
+        }
+
+        .impact h2 {
+            font-size: 4rem;
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+
+        .sketch-visual {
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        @keyframes wiggle {
+            0% {
+                transform: rotate(-1deg);
+            }
+
+            50% {
+                transform: rotate(1deg);
+            }
+
+            100% {
+                transform: rotate(-1deg);
+            }
+        }
+
+        .wiggle:hover {
+            animation: wiggle 0.5s infinite;
+        }
+
+        .sketch-visual img {
+            width: 100%;
+            filter: grayscale(1);
+            transition: var(--transition);
+        }
+
+        .sketch-visual:hover img {
+            filter: grayscale(0);
+            transform: scale(1.02);
+        }
+
+        .bridge-text {
+            font-size: 2.5rem;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        .bridge-visual {
+            max-width: 600px;
+            margin: 40px auto;
+            border: 2px solid var(--ink);
+            transform: rotate(1deg);
+            padding: 20px;
+            background: white;
+            box-shadow: 5px 5px 0px var(--ink);
+        }
+
+        /* --- Pillars Section --- */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pillar-card {
+            border: 2px solid var(--ink);
+            padding: 40px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            background: #fafafa;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--ink);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .pillar-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* --- Queries / FAQ --- */
+        .queries {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .queries h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .faq-box {
+            padding: 40px;
+            border: 2px solid var(--ink);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 80px 0;
+            border-top: 2px solid var(--ink);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .comparison,
+            .queries,
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .hero .underline {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">Portal</div>
+            <div class="nav-links">
+                <a href="#">The Idea</a>
+                <a href="#">Process</a>
+                <a href="#">Impact</a>
+            </div>
+            <a href="#" class="sketch-font"
+                style="text-decoration: none; color: black; border: 2px solid black; padding: 10px 20px; border-radius: 5px;">Let's
+                Connect</a>
+        </nav>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>We Built What We Wished<br>Existed!</h1>
+            <div class="underline"></div>
+            <p class="cursive">Hand-drawn with purpose, built for expansion.</p>
+        </section>
+
+        <!-- Comparison -->
+        <section class="comparison">
+            <div class="comp-card traditional">
+                <h3 class="sketch-font">Traditional<br>Placements</h3>
+                <p>Messy portals, complex filters, and disconnected data. The old way of doing things.</p>
+            </div>
+            <div class="comp-card different">
+                <h3 class="sketch-font">How we do it<br>differently</h3>
+                <p>Clean, human-centric, and focused on potential rather than just checkboxes.</p>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="process">
+            <h2 class="sketch-font">How it works so it always<br>works out!</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="timeline-content">
+                        <h4>Mapping Potential</h4>
+                        <p class="cursive text-muted">We start by understanding the "why".</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="timeline-content">
+                        <h4>Bridging the Gap</h4>
+                        <p class="cursive text-muted">Connecting institutions with intentional companies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="dot"></div>
+                    <div class="timeline-content">
+                        <h4>Sustained Growth</h4>
+                        <p class="cursive text-muted">It doesn't end at placement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact -->
+        <section class="impact">
+            <h2 class="sketch-font">PLACEMENTS MADE<br>10X simpler!</h2>
+            <div class="sketch-visual">
+                <img src="assets/sketch_group.png" alt="Collaborative Group Sketch">
+                <p class="cursive" style="margin-top: 20px; font-size: 1.2rem;">3 months of avg. time spent by
+                    coordinator chasing companies</p>
+            </div>
+            <div class="bridge-visual">
+                <img src="assets/sketch_bridge_gap.png" alt="Bridge Gap Sketch" style="width: 100%;">
+            </div>
+            <div class="bridge-text sketch-font">We bridge the gap.</div>
+        </section>
+
+        <!-- Pillars -->
+        <section class="pillars-section">
+            <h2 class="sketch-font" style="text-align: center; font-size: 3.5rem; margin-bottom: 60px;">WHAT'S EVEN
+                THIS?</h2>
+            <div class="pillars">
+                <div class="pillar-card wiggle">
+                    <h3 class="sketch-font">For Colleges</h3>
+                    <p>Unified dashboards for placement cells to track student progress in real-time.</p>
+                </div>
+                <div class="pillar-card wiggle">
+                    <h3 class="sketch-font">For Companies</h3>
+                    <p>A streamlined talent pipeline with verified skills and human-centric profiles.</p>
+                </div>
+                <div class="pillar-card wiggle">
+                    <h3 class="sketch-font">For Students</h3>
+                    <p>A clear roadmap to their career, with mentorship and tools to shine.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Queries -->
+        <section class="queries">
+            <div>
+                <h2 class="sketch-font">Got Queries? We are just a question away</h2>
+                <div class="faq-box sketch-font">
+                    [ Your Question Here ]
+                </div>
+                <p class="sketch-font" style="margin-top: 20px; font-size: 1.5rem;">Things you'll probably Ask</p>
+            </div>
+            <div class="sketch-visual">
+                <img src="assets/sketch_door.png" alt="Opportunity Door Sketch">
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-logo">Portal</div>
+            <p class="cursive">A two-sided platform built for new-age colleges & the companies who want to hire from
+                them.</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
