@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import './App.css'
-import Header from './components/landing/Header'
-import Banner from './components/landing/Banner'
-import WhyPw from './components/landing/WhyPw'
-import MasonryStats from './components/landing/stats'
 import Preloader from './components/landing/PreLoader'
-import OurPartners from './components/landing/OurPartners'
-import PWIOIFooter from './components/landing/Footer'
-import PlacementTimeline from './components/landing/PlacementTimeline'
-import AdminSlider from './components/landing/CareerService'
-import PlacementFAQ from './components/landing/FAQs'
-import RecruitersSection from './components/landing/founder'
-import Records from './components/landing/Records'
 import NotificationModal from './components/Notification'
 import DevTeam from './components/landing/DevTeam'
 import LoginModal from './components/landing/LoginModal'
+import SetuLandingPage from './components/landing/setu/SetuLandingPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import StudentDashboard from './pages/dashboard/StudentDashboard'
 import RecruiterDashboard from './pages/dashboard/RecruiterDashboard'
@@ -47,18 +37,10 @@ function LandingPage() {
   const navigate = useNavigate();
   const { tenant } = useAuth();
   const [isLoading, setIsLoading] = useState(() => sessionStorage.getItem(LANDING_PRELOADER_KEY) === '1');
-  const [timelineAutoplay, setTimelineAutoplay] = useState(false)
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [loginRole, setLoginRole] = useState('Student');
 
-  const triggerTimelineAnimation = () => {
-    setTimelineAutoplay(true);
-    setTimeout(() => setTimelineAutoplay(false), 3500);
-  };
-
-  // Open login/signup as modal on landing page
   const openLoginModal = (type = 'Student') => {
-    triggerTimelineAnimation();
     setLoginRole(type);
     setIsLoginOpen(true);
   };
@@ -67,36 +49,10 @@ function LandingPage() {
     setIsLoginOpen(false);
   };
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-form');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-      // Focus on company name input after scroll
-      setTimeout(() => {
-        const companyInput = document.querySelector('input[name="name"]');
-        if (companyInput) {
-          companyInput.focus();
-        }
-      }, 1000); // Wait for scroll to complete
-    }
-  };
-
-  const handleMeetDevTeam = () => {
-    // Navigate to DevTeam component
-    navigate('/dev-team');
-  };
+  const handleMeetDevTeam = () => navigate('/dev-team');
 
   const handleContactTeam = () => {
-    // Navigate to founders component
-    const foundersSection = document.querySelector('#founders-section');
-    if (foundersSection) {
-      foundersSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handlePlacementPolicy = () => {
-    // Open placement policy Google Doc
-    window.open('https://docs.google.com/document/d/1yEH5gMSux0cCf8UmS1d4p1GpZvL-nRzQHLutu8MrZoY/edit?usp=sharing', '_blank');
+    document.getElementById('setu-footer-contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -104,81 +60,24 @@ function LandingPage() {
       {isLoading ? (
         <Preloader onComplete={() => { sessionStorage.setItem(LANDING_PRELOADER_KEY, '1'); setIsLoading(false); }} />
       ) : (
-        <main className='w-full min-h-screen'>
+        <main className="w-full min-h-screen">
           <NotificationModal />
 
-          {/* Global login modal mounted on landing page */}
           <LoginModal
             isOpen={isLoginOpen}
             onClose={handleCloseLoginModal}
             defaultRole={loginRole}
           />
 
-          <Header
+          <SetuLandingPage
             onLoginOpen={openLoginModal}
-            onScrollToContact={scrollToContact}
+            onContactTeam={handleContactTeam}
+            onMeetDevTeam={handleMeetDevTeam}
             logo={tenant?.logo}
             collegeName={tenant?.name}
           />
-
-          {/* Banner - Odd component #F2F0EA */}
-          <div className='bg-gradient-to-b from-gray-50 to-[#FFEECE] overflow-hidden'>
-            <Banner
-              bannerUrl={tenant?.banner}
-              title={tenant ? `Welcome to ${tenant.name} Placement Portal` : undefined}
-            />
-          </div>
-
-          {/* WhyPw - Even component #A8D5E3 */}
-          <div className='bg-[#FFEECE]'>
-            <WhyPw />
-          </div>
-
-          {/* Stats - comes under WhyPw, before OurPartners */}
-          <div className='bg-[#FFEECE]'>
-            <MasonryStats />
-          </div>
-
-          {/* OurPartners - Odd component #F2F0EA */}
-          <div id="our-partners" className='bg-[#FFEECE]'>
-            <OurPartners />
-          </div>
-
-          {/* Records - Even component #A8D5E3 */}
-          <div className='bg-[#FFEECE]'>
-            <Records onLoginOpen={openLoginModal} />
-          </div>
-
-          {/* PlacementTimeline - #A8D5E3 background (overflow-x-clip only so sticky image works) */}
-          <div className='bg-[#FFEECE] overflow-x-clip'>
-            <PlacementTimeline autoplay={timelineAutoplay} />
-          </div>
-
-          <div className='bg-[#FFEECE] py-10'>
-            <AdminSlider />
-          </div>
-
-          {/* FoundersSection - Even component #A8D5E3 */}
-          <div className='bg-[#FFEECE]'>
-            <RecruitersSection />
-          </div>
-
-          <div className='bg-[#FFEECE]'>
-            <PlacementFAQ />
-          </div>
-
-          {/* Footer - Odd component #F2F0EA */}
-          <div>
-            <PWIOIFooter
-              onLoginOpen={openLoginModal}
-              onContactTeam={handleContactTeam}
-              onMeetDevTeam={handleMeetDevTeam}
-              onPlacementPolicy={handlePlacementPolicy}
-            />
-          </div>
         </main>
       )}
-
     </>
   )
 }

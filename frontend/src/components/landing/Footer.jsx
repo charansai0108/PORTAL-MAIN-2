@@ -1,7 +1,8 @@
 import React from 'react';
 import brandLogo from '../../assets/images/brand_logo.webp';
 
-const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam }) => {
+const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam, variant = 'dark' }) => {
+  const isSetu = variant === 'setu';
   const linkedinLink = "https://www.linkedin.com/school/pw-ioi/";
   const instagramLink = "https://www.instagram.com/pw_ioi/";
   const youtubeLink = "https://www.youtube.com/@PW-IOI";
@@ -11,8 +12,24 @@ const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam }) => {
     window.open('https://docs.google.com/document/d/1yEH5gMSux0cCf8UmS1d4p1GpZvL-nRzQHLutu8MrZoY/edit?usp=sharing', '_blank');
   };
 
+  const linkClass = isSetu
+    ? 'text-neutral-700 no-underline mb-3 inline-block transition-colors duration-300 hover:text-[#1a1a1a] hover:underline text-left cursor-pointer font-medium'
+    : "text-gray-400 no-underline mb-3 relative inline-block transition-all duration-300 pl-0 hover:text-white hover:pl-5 before:content-['→'] before:absolute before:left-[-20px] before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:left-0 text-left cursor-pointer";
+
+  const headingClass = isSetu
+    ? 'text-2xl text-[#1a1a1a] font-extrabold mb-5 uppercase tracking-tight'
+    : "text-2xl text-gray-200 font-semibold mb-5 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gray-400 after:transition-all after:duration-300 hover:after:w-full";
+
   return (
-    <footer className="text-white py-5 relative overflow-hidden mt-0" style={{ background: 'linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #2a2a5a 100%)' }}>
+    <footer
+      id="setu-footer"
+      className={`py-5 relative overflow-hidden mt-0 ${isSetu ? 'text-[#1a1a1a] border-t-[3px] border-[#1a1a1a] bg-[#fff4d6]' : 'text-white'}`}
+      style={
+        isSetu
+          ? undefined
+          : { background: 'linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #2a2a5a 100%)' }
+      }
+    >
       <div className="px-[10%] grid grid-cols-1 lg:grid-cols-3 gap-10">
 
         {/* Brand Section */}
@@ -20,57 +37,55 @@ const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam }) => {
           <img
             src={brandLogo}
             alt="PW IOI Logo"
-            className="w-44 mb-5 filter brightness-0 invert"
+            className={`w-44 mb-5 ${isSetu ? '' : 'filter brightness-0 invert'}`}
           />
-          <p className="text-gray-300">Empowering students with career opportunities and industry connections since 2010.</p>
+          <p className={isSetu ? 'text-neutral-700 setu-script text-xl' : 'text-gray-300'}>
+            Empowering students with career opportunities and industry connections since 2010.
+          </p>
         </div>
 
         {/* Quick Links Section */}
         <div className="flex flex-col mt-4">
-          <h3 className="text-2xl text-gray-200 font-semibold mb-5 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gray-400 after:transition-all after:duration-300 hover:after:w-full">
-            Quick Links
-          </h3>
+          <h3 className={headingClass}>Quick Links</h3>
           <button
             onClick={() => onLoginOpen && onLoginOpen('Recruiter')}
-            className="text-gray-400 no-underline mb-3 relative inline-block transition-all duration-300 pl-0 hover:text-white hover:pl-5 before:content-['→'] before:absolute before:left-[-20px] before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:left-0 text-left cursor-pointer"
+            className={linkClass}
           >
             Recruiter Login
           </button>
           <button
             onClick={() => onLoginOpen && onLoginOpen('Student')}
-            className="text-gray-400 no-underline mb-3 relative inline-block transition-all duration-300 pl-0 hover:text-white hover:pl-5 before:content-['→'] before:absolute before:left-[-20px] before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:left-0 text-left cursor-pointer"
+            className={linkClass}
           >
             Student Login
           </button>
           <button
             onClick={openPlacementPolicy}
-            className="text-gray-400 no-underline mb-3 relative inline-block transition-all duration-300 pl-0 hover:text-white hover:pl-5 before:content-['→'] before:absolute before:left-[-20px] before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:left-0 text-left cursor-pointer"
+            className={linkClass}
           >
             Placement Policy
           </button>
           <button
             onClick={() => onContactTeam && onContactTeam()}
-            className="text-gray-400 no-underline mb-3 relative inline-block transition-all duration-300 pl-0 hover:text-white hover:pl-5 before:content-['→'] before:absolute before:left-[-20px] before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:left-0 text-left cursor-pointer"
+            className={linkClass}
           >
             Contact Team
           </button>
           <button
             onClick={() => onMeetDevTeam && onMeetDevTeam()}
-            className="text-gray-400 no-underline mb-3 relative inline-block transition-all duration-300 pl-0 hover:text-white hover:pl-5 before:content-['→'] before:absolute before:left-[-20px] before:opacity-0 before:transition-all before:duration-300 hover:before:opacity-100 hover:before:left-0 text-left cursor-pointer"
+            className={linkClass}
           >
             Meet the Dev Team
           </button>
         </div>
 
         {/* Contact Info Section */}
-        <div className="flex flex-col mt-4">
-          <h3 className="text-2xl text-gray-200 font-semibold mb-5 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gray-400 after:transition-all after:duration-300 hover:after:w-full">
-            Contact Info
-          </h3>
+        <div id="setu-footer-contact" className="flex flex-col mt-4">
+          <h3 className={headingClass}>Contact Info</h3>
           <div className="space-y-3 mb-6">
             <a
               href="mailto:placement@pwioi.edu.in"
-              className="flex items-center gap-3 text-gray-400 group hover:text-white transition-colors"
+              className={`flex items-center gap-3 group transition-colors ${isSetu ? 'text-neutral-700 hover:text-[#1a1a1a]' : 'text-gray-400 hover:text-white'}`}
             >
               <svg className="w-5 h-5 group-hover:text-gray-200" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
@@ -79,7 +94,7 @@ const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam }) => {
             </a>
             <a
               href="tel:+918012345678"
-              className="flex items-center gap-3 text-gray-400 group hover:text-white transition-colors"
+              className={`flex items-center gap-3 group transition-colors ${isSetu ? 'text-neutral-700 hover:text-[#1a1a1a]' : 'text-gray-400 hover:text-white'}`}
             >
               <svg className="w-5 h-5 group-hover:text-green-400" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
@@ -90,9 +105,9 @@ const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam }) => {
               href="https://maps.google.com?q=PW+IOI+Bangalore+Campus"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex group items-center gap-3 text-gray-400 transition-all duration-300 hover:text-white"
+              className={`flex group items-center gap-3 transition-all duration-300 ${isSetu ? 'text-neutral-700 hover:text-[#1a1a1a]' : 'text-gray-400 hover:text-white'}`}
             >
-              <svg className="w-5 h-5 text-gray-400 group-hover:text-red-500 duration-200" fill="currentColor" viewBox="0 0 24 24">
+              <svg className={`w-5 h-5 duration-200 ${isSetu ? 'text-[#ffb800] group-hover:text-[#1a1a1a]' : 'text-gray-400 group-hover:text-red-500'}`} fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
               </svg>
               <span className='leading-5'>
@@ -139,7 +154,7 @@ const PWIOIFooter = ({ onLoginOpen, onContactTeam, onMeetDevTeam }) => {
       </div>
 
       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet" />
-      <div className="mt-10 pt-5 border-t border-white/30 text-gray-400 text-sm flex flex-col items-center gap-2">
+      <div className={`mt-10 pt-5 border-t text-sm flex flex-col items-center gap-2 ${isSetu ? 'border-[#1a1a1a]/20 text-neutral-600' : 'border-white/30 text-gray-400'}`}>
         <span className="text-center" style={{ fontFamily: 'Caveat, cursive', fontSize: '1rem', fontWeight: 600, letterSpacing: '.02em', justifyContent: 'center', display: 'flex', alignItems: 'center' }}>
           Built with <span style={{ color: 'red', fontSize: '1.1em', margin: '0 2px' }}>&nbsp;❤️</span>&nbsp;by our 2nd-sem Students — proof of their talent!
         </span>
